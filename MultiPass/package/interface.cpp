@@ -3,14 +3,14 @@
 Interface::Interface(QMainWindow *window) {
 
     if (window->objectName().isEmpty())
-        window->setObjectName("MuliPass");
-    window->resize(900,600);
-    window->setStyleSheet(QString::fromUtf8("background-color: rgb(34, 40, 49);"));
+        window->setObjectName(INTERFACE::WINDOW_NAME);
+    window->resize(INTERFACE::WINDOW_WIDTH,INTERFACE::WINDOW_HEIGHT);
+    window->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BACKGROUND_COLOR));
     centralwidget = new QWidget(window);
     centralwidget->setObjectName("centralwidget");
     layoutWidget = new QWidget(centralwidget);
     layoutWidget->setObjectName("layoutWidget");
-    layoutWidget->setGeometry(QRect(0,0,900,608));
+    layoutWidget->setGeometry(QRect(0,0,INTERFACE::WINDOW_WIDTH,INTERFACE::WINDOW_HEIGHT));
     vertical = new QVBoxLayout(layoutWidget);
     vertical->setSpacing(0);
     vertical->setObjectName("vertical");
@@ -23,15 +23,13 @@ Interface::Interface(QMainWindow *window) {
     horizont_add_space->setObjectName("horizont_add_space");
     btn_add = new QPushButton(layoutWidget);
     btn_add->setObjectName("btn_add");
-    btn_add->setMinimumSize(QSize(130, 40));
-    btn_add->setMaximumSize(QSize(130, 40));
-    QFont font;
-    font.setFamilies({QString::fromUtf8("Britannic Bold")});
-    font.setPointSize(30);
-    btn_add->setFont(font);
+    btn_add->setFixedSize(QSize(INTERFACE::BUTTON_ADD_WIDTH, INTERFACE::BUTTON_ADD_HEIGHT));
+    QFont font_big;
+    font_big.setFamilies({QString::fromUtf8(INTERFACE::FONT_NAME)});
+    font_big.setPointSize(INTERFACE::FONT_BIG_SIZE);
+    btn_add->setFont(font_big);
     btn_add->setAcceptDrops(false);
-    btn_add->setStyleSheet(QString::fromUtf8("color: rgb(68, 73, 80);\n"
-                                             "background-color: rgb(238, 238, 238);"));
+    btn_add->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
 
     horizont_add_space->addWidget(btn_add);
 
@@ -44,14 +42,12 @@ Interface::Interface(QMainWindow *window) {
 
     btn_new = new QPushButton(layoutWidget);
     btn_new->setObjectName("btn_new");
-    btn_new->setMinimumSize(QSize(200, 30));
-    btn_new->setMaximumSize(QSize(200, 30));
-    QFont font1;
-    font1.setFamilies({QString::fromUtf8("Britannic Bold")});
-    font1.setPointSize(20);
-    btn_new->setFont(font1);
-    btn_new->setStyleSheet(QString::fromUtf8("color: rgb(68, 73, 80);\n"
-                                             "background-color: rgb(238, 238, 238);"));
+    btn_new->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
+    QFont font_middle;
+    font_middle.setFamilies({QString::fromUtf8(INTERFACE::FONT_NAME)});
+    font_middle.setPointSize(INTERFACE::FONT_MIDDLE_SIZE);
+    btn_new->setFont(font_middle);
+    btn_new->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
 
     horizont_btns->addWidget(btn_new);
 
@@ -61,11 +57,9 @@ Interface::Interface(QMainWindow *window) {
 
     btn_delete = new QPushButton(layoutWidget);
     btn_delete->setObjectName("btn_delete");
-    btn_delete->setMinimumSize(QSize(200, 30));
-    btn_delete->setMaximumSize(QSize(200, 30));
-    btn_delete->setFont(font1);
-    btn_delete->setStyleSheet(QString::fromUtf8("color: rgb(68, 73, 80);\n"
-                                                "background-color: rgb(238, 238, 238);"));
+    btn_delete->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
+    btn_delete->setFont(font_middle);
+    btn_delete->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
 
     horizont_btns->addWidget(btn_delete);
 
@@ -74,30 +68,27 @@ Interface::Interface(QMainWindow *window) {
 
     frame_names = new QFrame(layoutWidget);
     frame_names->setObjectName("frame_names");
-    frame_names->setMinimumSize(QSize(0, 30));
-    frame_names->setMaximumSize(QSize(16777215, 30));
-    frame_names->setStyleSheet(QString::fromUtf8("background-color: rgb(57, 62, 70);"));
+    frame_names->setFixedSize(QSize(INTERFACE::FRAME_WIDTH, INTERFACE::FRAME_HEIGHT));
+    frame_names->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BACKGROUND_FRAME_COLOR));
     frame_names->setFrameShape(QFrame::StyledPanel);
     frame_names->setFrameShadow(QFrame::Raised);
     layoutWidget_4 = new QWidget(frame_names);
     layoutWidget_4->setObjectName("layoutWidget_4");
-    layoutWidget_4->setGeometry(QRect(-6, 0, 901, 32));
+    layoutWidget_4->setGeometry(QRect(2, 0, 901, 32));
     horizont_names = new QHBoxLayout(layoutWidget_4);
     horizont_names->setObjectName("horizont_names");
     horizont_names->setContentsMargins(0, 0, 0, 0);
     label_tab = new QLabel(layoutWidget_4);
     label_tab->setObjectName("label_tab");
-    label_tab->setMinimumSize(QSize(123, 20));
-    label_tab->setMaximumSize(QSize(90, 20));
-    label_tab->setFont(font1);
-    label_tab->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_tab->setFixedSize(QSize(INTERFACE::LABEL_SITE_WIDTH, INTERFACE::LABEL_SITE_HEIGHT));
+    label_tab->setFont(font_middle);
+    label_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
 
     horizont_names->addWidget(label_tab);
 
     btn_search = new QPushButton(layoutWidget_4);
     btn_search->setObjectName("btn_search");
-    btn_search->setMinimumSize(QSize(20, 20));
-    btn_search->setMaximumSize(QSize(20, 20));
+    btn_search->setFixedSize(QSize(INTERFACE::BUTTON_SEARCH_WIDTH, INTERFACE::BUTTON_SEARCH_HEIGHT));
 
     horizont_names->addWidget(btn_search);
 
@@ -117,7 +108,7 @@ Interface::Interface(QMainWindow *window) {
     label_email = new QLabel(layoutWidget_4);
     label_email->setObjectName("label_email");
     label_email->setMinimumSize(QSize(60, 20));
-    label_email->setFont(font1);
+    label_email->setFont(font_middle);
     label_email->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 
     horizont_names->addWidget(label_email);
@@ -129,7 +120,7 @@ Interface::Interface(QMainWindow *window) {
     label_password = new QLabel(layoutWidget_4);
     label_password->setObjectName("label_password");
     label_password->setMinimumSize(QSize(60, 20));
-    label_password->setFont(font1);
+    label_password->setFont(font_middle);
     label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 
     horizont_names->addWidget(label_password);
@@ -205,7 +196,7 @@ Interface::Interface(QMainWindow *window) {
     btn_add->setText(QCoreApplication::translate("MultiPass", "add", nullptr));
     btn_new->setText(QCoreApplication::translate("MultiPass", "new account", nullptr));
     btn_delete->setText(QCoreApplication::translate("MultiPass", "delete account", nullptr));
-    label_tab->setText(QCoreApplication::translate("MultiPass", "  site", nullptr));
+    label_tab->setText(QCoreApplication::translate("MultiPass", "site", nullptr));
     btn_search->setText(QCoreApplication::translate("MultiPass", "s", nullptr));
     label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
     label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
