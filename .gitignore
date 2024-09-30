@@ -1,5 +1,7 @@
 demo/
 
 MultiPass/CMakeLists.txt
+MultiPass/CMakeLists.txt.user
+
 
 build-MultiPass-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/
