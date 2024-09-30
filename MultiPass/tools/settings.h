@@ -32,8 +32,18 @@ const int LINE_EMAIL_HEIGHT = 20;
 const int LINE_PASSWORD_WIDTH = 120;
 const int LINE_PASSWORD_HEIGHT = 30;
 
+const int SCROLL_AREA_TAB_WIDTH = 250;
+const int SCROLL_AREA_TAB_HEIGHT = 510;
+
+const int SCROLL_AREA_VALUES_WIDTH = 650;
+const int SCROLL_AREA_VALUES_HEIGHT = 510;
 
 
+const int LABEL_ICO_WIDTH = 40;
+const int LABEL_ICO_HEIGHT = 40;
+
+const int LABEL_TAB_NAME_WIDTH = 210;
+const int LABEL_TAB_NAME_HEIGHT = 40;
 
 // window name
 const char* const WINDOW_NAME = "MultiPass";
@@ -46,6 +56,15 @@ const char* const CSS_BUTTON_COLOR = "color: rgb(68, 73, 80);\n"
 const char* const CSS_TAB_LABEL_COLOR =  "color: rgb(189, 190, 192);";
 const char* const CSS_LABEL_EDIT_COLOR =  "color: rgb(189, 190, 192);\n"
                                                      "background-color: rgb(238, 238, 238);";
+const char* const CSS_BUTTON_SEARCH_COLOR = "color: rgb(68, 73, 80);\n"
+                                            "background-color: rgb(238, 238, 238);"
+                                            "font: 15pt \"Britannic Bold\";";
+const char* const CSS_SCROLL_AREA_TAB_COLOR = "background-color: rgb(57, 62, 70);\n"
+                                          "border: 1px solid rgb(57,62,70);";
+const char* const CSS_SCROLL_AREA_VALUES_COLOR = "background-color: rgb(238, 238, 238);";
+const char* const CSS_LABEL_TAB_NAME_COLOR = "background-color: rgb(238, 238, 238);\n"
+                                             "color: rgb(34, 40, 49);\n"
+                                             "font: 25pt \"Britannic Bold\";";
 
 // fronts
 const char* const FONT_NAME = "Britannic Bold";

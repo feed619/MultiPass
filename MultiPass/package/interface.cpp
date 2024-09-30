@@ -89,6 +89,8 @@ Interface::Interface(QMainWindow *window) {
     btn_search = new QPushButton(layoutWidget_4);
     btn_search->setObjectName("btn_search");
     btn_search->setFixedSize(QSize(INTERFACE::BUTTON_SEARCH_WIDTH, INTERFACE::BUTTON_SEARCH_HEIGHT));
+    btn_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_SEARCH_COLOR));
+
 
     horizont_names->addWidget(btn_search);
 
@@ -118,7 +120,7 @@ Interface::Interface(QMainWindow *window) {
     label_password->setObjectName("label_password");
     label_password->setFixedSize(QSize(INTERFACE::LINE_PASSWORD_WIDTH, INTERFACE::LINE_PASSWORD_HEIGHT));
     label_password->setFont(font_middle);
-    label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_password->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
 
     horizont_names->addWidget(label_password);
 
@@ -127,30 +129,73 @@ Interface::Interface(QMainWindow *window) {
 
     horizont_data = new QHBoxLayout();
     horizont_data->setSpacing(0);
+
     horizont_data->setObjectName("horizont_data");
+
+
     scrollArea_tab = new QScrollArea(layoutWidget);
     scrollArea_tab->setObjectName("scrollArea_tab");
-    scrollArea_tab->setMinimumSize(QSize(250, 510));
-    scrollArea_tab->setMaximumSize(QSize(260, 520));
-    scrollArea_tab->setStyleSheet(QString::fromUtf8("background-color: rgb(57, 62, 70);\n"
-                                                    "border: 1px solid rgb(57,62,70);"));
+    scrollArea_tab->setFixedSize(QSize(INTERFACE::SCROLL_AREA_TAB_WIDTH, INTERFACE::SCROLL_AREA_TAB_HEIGHT));
+    scrollArea_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_SCROLL_AREA_TAB_COLOR));
     scrollArea_tab->setWidgetResizable(true);
     scrollAreaWidgetContents_tab = new QWidget();
     scrollAreaWidgetContents_tab->setObjectName("scrollAreaWidgetContents_tab");
-    scrollAreaWidgetContents_tab->setGeometry(QRect(0, 0, 248, 508));
+    scrollAreaWidgetContents_tab->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_TAB_WIDTH, INTERFACE::SCROLL_AREA_TAB_HEIGHT));
+    //verticalLayoutWidget = new QWidget(scrollAreaWidgetContents_tab);
+    //verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+    //verticalLayoutWidget->setGeometry(QRect(0, 0, 251, 511));
+    vertical_tab = new QVBoxLayout(scrollAreaWidgetContents_tab);
+    vertical_tab->setObjectName("vertical_tab");
+    vertical_tab->setContentsMargins(0, 0, 0, 0);
+    vertical_tab->setSpacing(0);
+
+
     scrollArea_tab->setWidget(scrollAreaWidgetContents_tab);
 
     horizont_data->addWidget(scrollArea_tab);
 
+    //containerWidget1 = new QWidget();
+
+    tab = new Tab(scrollAreaWidgetContents_tab,"Twitch");
+
+    vertical_tab->addLayout(tab->horizontalLayout);
+
+    //containerWidget1->setLayout(tab->horizontalLayout);
+
+    //scrollArea_tab->setWidget(containerWidget1);  // Устанавливаем виджет в прокручиваемую область
+
+    //tab2 = new Tab(scrollAreaWidgetContents_tab,"Youtube");
+
+    //vertical_tab->addLayout(tab2->horizontalLayout);
+
+
+
+    verticalSpacer = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+    vertical_tab->addItem(verticalSpacer);
+
+    Interface::create_tab_list();
+
+    //tab2 = new Tab(verticalLayoutWidget,"Ютуб");
+
+    //vertical_tab->insertLayout(vertical_tab->count() - 1, tab2->horizontalLayout); // Добавляем перед последним элементом (spacer)
+
+   // vertical_tab->addLayout(tab2->horizontalLayout);
+
+
+
+
+
     scrollArea_values = new QScrollArea(layoutWidget);
     scrollArea_values->setObjectName("scrollArea_values");
-    scrollArea_values->setMinimumSize(QSize(650, 510));
-    scrollArea_values->setMaximumSize(QSize(650, 520));
-    scrollArea_values->setStyleSheet(QString::fromUtf8("background-color: rgb(238, 238, 238);"));
+    scrollArea_values->setFixedSize(QSize(INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
+    scrollArea_values->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_SCROLL_AREA_VALUES_COLOR));
     scrollArea_values->setWidgetResizable(true);
     scrollAreaWidgetContents_values = new QWidget();
     scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
     scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, 648, 508));
+
+
     scrollArea_values->setWidget(scrollAreaWidgetContents_values);
 
     horizont_data->addWidget(scrollArea_values);
@@ -158,6 +203,8 @@ Interface::Interface(QMainWindow *window) {
 
     vertical->addLayout(horizont_data);
 
+
+/*
     widget = new QWidget(centralwidget);
     widget->setObjectName("widget");
     widget->setGeometry(QRect(50, 630, 259, 41));
@@ -186,8 +233,10 @@ Interface::Interface(QMainWindow *window) {
     label_tab_name->setAlignment(Qt::AlignCenter);
 
     horizontalLayout->addWidget(label_tab_name);
-
+*/
     window->setCentralWidget(centralwidget);
+
+
 
     window->setWindowTitle(QCoreApplication::translate("MultiPass", "MultiPass", nullptr));
     btn_add->setText(QCoreApplication::translate("MultiPass", "add", nullptr));
@@ -197,11 +246,26 @@ Interface::Interface(QMainWindow *window) {
     btn_search->setText(QCoreApplication::translate("MultiPass", "s", nullptr));
     label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
     label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
+
+
+
+    /*
     label_ico->setText(QString());
 #if QT_CONFIG(tooltip)
     label_tab_name->setToolTip(QCoreApplication::translate("MultiPass", "<html><head/><body><p><br/></p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)
     label_tab_name->setText(QCoreApplication::translate("MultiPass", "Youtube", nullptr));
-
+*/
     QMetaObject::connectSlotsByName(window);
+}
+
+
+void Interface::create_tab_list()
+{
+    for (int i = 1;i<25;i++)
+    {
+        tab_list.push_back(new Tab(scrollAreaWidgetContents_tab,"Youtube"));
+        //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
+        vertical_tab->insertLayout(vertical_tab->count() - 1, tab_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
+    }
 }

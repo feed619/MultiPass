@@ -2,6 +2,7 @@
 #define INTERFACE_H
 
 #include "../tools/settings.h"
+#include "tab.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -14,13 +15,19 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <list>
 
 class Interface
 {
 public:
     Interface(QMainWindow *window);
 
-
+    std::list<Tab*> tab_list;
+    Tab* tab;
+    Tab* tab2;
+    QVBoxLayout *vertical_tab;
+    QSpacerItem *verticalSpacer;
+    QWidget *verticalLayoutWidget;
     QWidget *centralwidget;
     QWidget *layoutWidget;
     QVBoxLayout *vertical;
@@ -50,6 +57,10 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_ico;
     QLabel *label_tab_name;
+
+    QWidget *containerWidget1;
+
+    void create_tab_list();
 
 };
 
