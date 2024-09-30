@@ -94,22 +94,19 @@ Interface::Interface(QMainWindow *window) {
 
     lineEdit_search = new QLineEdit(layoutWidget_4);
     lineEdit_search->setObjectName("lineEdit_search");
-    lineEdit_search->setMinimumSize(QSize(100, 20));
-    lineEdit_search->setMaximumSize(QSize(90, 20));
-    lineEdit_search->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);\n"
-                                                     "background-color: rgb(238, 238, 238);"));
-
+    lineEdit_search->setFixedSize(QSize(INTERFACE::LINE_EDIT_WIDTH, INTERFACE::LINE_EDIT_HEIGHT));
+    lineEdit_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_EDIT_COLOR));
     horizont_names->addWidget(lineEdit_search);
 
-    space_values = new QSpacerItem(20, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+    space_values = new QSpacerItem(24, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
 
     horizont_names->addItem(space_values);
 
     label_email = new QLabel(layoutWidget_4);
     label_email->setObjectName("label_email");
-    label_email->setMinimumSize(QSize(60, 20));
+    label_email->setFixedSize(QSize(INTERFACE::LINE_EMAIL_WIDTH, INTERFACE::LINE_EMAIL_HEIGHT));
     label_email->setFont(font_middle);
-    label_email->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_email->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
 
     horizont_names->addWidget(label_email);
 
@@ -119,7 +116,7 @@ Interface::Interface(QMainWindow *window) {
 
     label_password = new QLabel(layoutWidget_4);
     label_password->setObjectName("label_password");
-    label_password->setMinimumSize(QSize(60, 20));
+    label_password->setFixedSize(QSize(INTERFACE::LINE_PASSWORD_WIDTH, INTERFACE::LINE_PASSWORD_HEIGHT));
     label_password->setFont(font_middle);
     label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 

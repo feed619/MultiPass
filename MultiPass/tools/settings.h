@@ -23,6 +23,17 @@ const int FRAME_HEIGHT = 30;
 const int LABEL_SITE_WIDTH = 97;
 const int LABEL_SITE_HEIGHT = 20;
 
+const int LINE_EDIT_WIDTH = 90;
+const int LINE_EDIT_HEIGHT = 20;
+
+const int LINE_EMAIL_WIDTH = 80;
+const int LINE_EMAIL_HEIGHT = 20;
+
+const int LINE_PASSWORD_WIDTH = 120;
+const int LINE_PASSWORD_HEIGHT = 30;
+
+
+
 
 // window name
 const char* const WINDOW_NAME = "MultiPass";
@@ -33,11 +44,14 @@ const char* const CSS_BACKGROUND_FRAME_COLOR = "background-color: rgb(57, 62, 70
 const char* const CSS_BUTTON_COLOR = "color: rgb(68, 73, 80);\n"
                                      "background-color: rgb(238, 238, 238);";
 const char* const CSS_TAB_LABEL_COLOR =  "color: rgb(189, 190, 192);";
+const char* const CSS_LABEL_EDIT_COLOR =  "color: rgb(189, 190, 192);\n"
+                                                     "background-color: rgb(238, 238, 238);";
 
 // fronts
 const char* const FONT_NAME = "Britannic Bold";
 const int FONT_BIG_SIZE = 30;
 const int FONT_MIDDLE_SIZE = 20;
+
 
 //
 //
