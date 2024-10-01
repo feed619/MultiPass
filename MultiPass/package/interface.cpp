@@ -2,6 +2,13 @@
 
 Interface::Interface(QMainWindow *window) {
 
+
+    font_big.setFamilies({QString::fromUtf8(INTERFACE::FONT_NAME)});
+    font_big.setPointSize(INTERFACE::FONT_BIG_SIZE);
+
+    font_middle.setFamilies({QString::fromUtf8(INTERFACE::FONT_NAME)});
+    font_middle.setPointSize(INTERFACE::FONT_MIDDLE_SIZE);
+
     if (window->objectName().isEmpty())
         window->setObjectName(INTERFACE::WINDOW_NAME);
     window->resize(INTERFACE::WINDOW_WIDTH,INTERFACE::WINDOW_HEIGHT);
@@ -15,6 +22,8 @@ Interface::Interface(QMainWindow *window) {
     vertical->setSpacing(0);
     vertical->setObjectName("vertical");
     vertical->setContentsMargins(0,0,0,0);
+    Interface::create_control_buttons();
+    /*
     horizont_btns = new QHBoxLayout();
     horizont_btns->setSpacing(6);
     horizont_btns->setObjectName("horizont_btns");
@@ -66,6 +75,8 @@ Interface::Interface(QMainWindow *window) {
 
     vertical->addLayout(horizont_btns);
 
+    */
+
     frame_names = new QFrame(layoutWidget);
     frame_names->setObjectName("frame_names");
     frame_names->setFixedSize(QSize(INTERFACE::FRAME_WIDTH, INTERFACE::FRAME_HEIGHT));
@@ -83,6 +94,8 @@ Interface::Interface(QMainWindow *window) {
     label_tab->setFixedSize(QSize(INTERFACE::LABEL_SITE_WIDTH, INTERFACE::LABEL_SITE_HEIGHT));
     label_tab->setFont(font_middle);
     label_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
+    //label_tab->setStyleSheet("QLabel:hover { background-color: yellow; }"
+    //                         "QLabel {color: rgb(189, 190, 192);}");
 
     horizont_names->addWidget(label_tab);
 
@@ -132,7 +145,7 @@ Interface::Interface(QMainWindow *window) {
 
     horizont_data->setObjectName("horizont_data");
 
-
+    /*
     scrollArea_tab = new QScrollArea(layoutWidget);
     scrollArea_tab->setObjectName("scrollArea_tab");
     scrollArea_tab->setFixedSize(QSize(INTERFACE::SCROLL_AREA_TAB_WIDTH, INTERFACE::SCROLL_AREA_TAB_HEIGHT));
@@ -147,18 +160,18 @@ Interface::Interface(QMainWindow *window) {
     vertical_tab = new QVBoxLayout(scrollAreaWidgetContents_tab);
     vertical_tab->setObjectName("vertical_tab");
     vertical_tab->setContentsMargins(0, 0, 0, 0);
-    vertical_tab->setSpacing(0);
+    vertical_tab->setSpacing(2);
 
 
     scrollArea_tab->setWidget(scrollAreaWidgetContents_tab);
 
     horizont_data->addWidget(scrollArea_tab);
-
+*/
     //containerWidget1 = new QWidget();
 
-    tab = new Tab(scrollAreaWidgetContents_tab,"Twitch");
+    //tab = new Tab(scrollAreaWidgetContents_tab,"Twitch");
 
-    vertical_tab->addLayout(tab->horizontalLayout);
+    //vertical_tab->addLayout(tab->horizontalLayout);
 
     //containerWidget1->setLayout(tab->horizontalLayout);
 
@@ -169,7 +182,7 @@ Interface::Interface(QMainWindow *window) {
     //vertical_tab->addLayout(tab2->horizontalLayout);
 
 
-
+    Interface::create_scrollArea_tab();
     verticalSpacer = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
     vertical_tab->addItem(verticalSpacer);
@@ -181,9 +194,6 @@ Interface::Interface(QMainWindow *window) {
     //vertical_tab->insertLayout(vertical_tab->count() - 1, tab2->horizontalLayout); // Добавляем перед последним элементом (spacer)
 
    // vertical_tab->addLayout(tab2->horizontalLayout);
-
-
-
 
 
     scrollArea_values = new QScrollArea(layoutWidget);
@@ -260,6 +270,78 @@ Interface::Interface(QMainWindow *window) {
 }
 
 
+void Interface::create_control_buttons()
+{
+    horizont_btns = new QHBoxLayout();
+    horizont_btns->setSpacing(6);
+    horizont_btns->setObjectName("horizont_btns");
+    horizont_btns->setSizeConstraint(QLayout::SetDefaultConstraint);
+    horizont_add_space = new QHBoxLayout();
+    horizont_add_space->setObjectName("horizont_add_space");
+    btn_add = new QPushButton(layoutWidget);
+    btn_add->setObjectName("btn_add");
+    btn_add->setFixedSize(QSize(INTERFACE::BUTTON_ADD_WIDTH, INTERFACE::BUTTON_ADD_HEIGHT));
+    btn_add->setFont(font_big);
+    btn_add->setAcceptDrops(false);
+    btn_add->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+
+    horizont_add_space->addWidget(btn_add);
+
+    space_add = new QSpacerItem(118, 60, QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Minimum);
+
+    horizont_add_space->addItem(space_add);
+
+
+    horizont_btns->addLayout(horizont_add_space);
+
+    btn_new = new QPushButton(layoutWidget);
+    btn_new->setObjectName("btn_new");
+    btn_new->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
+    btn_new->setFont(font_middle);
+    btn_new->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+
+    horizont_btns->addWidget(btn_new);
+
+    space_new_delete = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+    horizont_btns->addItem(space_new_delete);
+
+    btn_delete = new QPushButton(layoutWidget);
+    btn_delete->setObjectName("btn_delete");
+    btn_delete->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
+    btn_delete->setFont(font_middle);
+    btn_delete->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+
+    horizont_btns->addWidget(btn_delete);
+
+
+    vertical->addLayout(horizont_btns);
+}
+void Interface::create_scrollArea_tab(){
+
+    scrollArea_tab = new QScrollArea(layoutWidget);
+    scrollArea_tab->setObjectName("scrollArea_tab");
+    scrollArea_tab->setFixedSize(QSize(INTERFACE::SCROLL_AREA_TAB_WIDTH, INTERFACE::SCROLL_AREA_TAB_HEIGHT));
+    scrollArea_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_SCROLL_AREA_TAB_COLOR));
+    scrollArea_tab->setWidgetResizable(true);
+    scrollAreaWidgetContents_tab = new QWidget();
+    scrollAreaWidgetContents_tab->setObjectName("scrollAreaWidgetContents_tab");
+    scrollAreaWidgetContents_tab->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_TAB_WIDTH, INTERFACE::SCROLL_AREA_TAB_HEIGHT));
+    //verticalLayoutWidget = new QWidget(scrollAreaWidgetContents_tab);
+    //verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+    //verticalLayoutWidget->setGeometry(QRect(0, 0, 251, 511));
+    vertical_tab = new QVBoxLayout(scrollAreaWidgetContents_tab);
+    vertical_tab->setObjectName("vertical_tab");
+    vertical_tab->setContentsMargins(0, 0, 0, 0);
+    vertical_tab->setSpacing(2);
+
+
+    scrollArea_tab->setWidget(scrollAreaWidgetContents_tab);
+
+    horizont_data->addWidget(scrollArea_tab);
+
+
+}
 void Interface::create_tab_list()
 {
     for (int i = 1;i<25;i++)

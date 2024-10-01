@@ -25,6 +25,8 @@ public:
     std::list<Tab*> tab_list;
     Tab* tab;
     Tab* tab2;
+    QFont font_big;
+    QFont font_middle;
     QVBoxLayout *vertical_tab;
     QSpacerItem *verticalSpacer;
     QWidget *verticalLayoutWidget;
@@ -60,7 +62,9 @@ public:
 
     QWidget *containerWidget1;
 
+    void create_control_buttons();
     void create_tab_list();
+    void create_scrollArea_tab();
 
 };
 

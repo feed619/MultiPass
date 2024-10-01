@@ -61,10 +61,24 @@ const char* const CSS_BUTTON_SEARCH_COLOR = "color: rgb(68, 73, 80);\n"
                                             "font: 15pt \"Britannic Bold\";";
 const char* const CSS_SCROLL_AREA_TAB_COLOR = "background-color: rgb(57, 62, 70);\n"
                                           "border: 1px solid rgb(57,62,70);";
-const char* const CSS_SCROLL_AREA_VALUES_COLOR = "background-color: rgb(238, 238, 238);";
+const char* const CSS_SCROLL_AREA_VALUES_COLOR = "background-color: rgb(238, 238, 238);\n"
+                                                  "border: 1px;"   ;
 const char* const CSS_LABEL_TAB_NAME_COLOR = "background-color: rgb(238, 238, 238);\n"
                                              "color: rgb(34, 40, 49);\n"
                                              "font: 25pt \"Britannic Bold\";";
+
+const char* const QSS_LABEL_TAB_NAME_COLOR =         "QPushButton {"
+                                             "   background-color: rgb(238, 238, 238);"
+                                             "   color: rgb(34, 40, 49);"
+                                             "   border: 1px ;"
+                                             "   font: 25pt 'Britannic Bold';"
+                                             "}"
+                                             "QPushButton:hover {"
+                                             "   background-color: rgb(198, 198, 198);"
+                                             "}"
+                                             "QPushButton:pressed {"
+                                             "   background-color: rgb(150, 150, 150);"
+                                             "}";
 
 // fronts
 const char* const FONT_NAME = "Britannic Bold";

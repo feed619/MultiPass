@@ -19,13 +19,13 @@ Tab::Tab(QWidget* verticalLayoutWidget,QString tab_name) {
 
     horizontalLayout->addWidget(label_ico);
 
-    label_tab_name = new QLabel(verticalLayoutWidget);
+    label_tab_name = new QPushButton(verticalLayoutWidget);
     label_tab_name->setObjectName("label_tab_name");
     label_tab_name->setMaximumSize(QSize(INTERFACE::LABEL_TAB_NAME_WIDTH, INTERFACE::LABEL_TAB_NAME_HEIGHT));
     label_tab_name->setLayoutDirection(Qt::LeftToRight);
     label_tab_name->setAutoFillBackground(false);
-    label_tab_name->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_TAB_NAME_COLOR));
-    label_tab_name->setAlignment(Qt::AlignCenter);
+    label_tab_name->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_LABEL_TAB_NAME_COLOR));
+    //label_tab_name->setAlignment(Qt::AlignCenter);
 
     horizontalLayout->addWidget(label_tab_name);
 

@@ -5,6 +5,7 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 class Tab
 {
 public:
@@ -13,7 +14,7 @@ public:
     QWidget *widget;
     QHBoxLayout *horizontalLayout ;
     QLabel *label_ico;
-    QLabel *label_tab_name ;
+    QPushButton *label_tab_name ;
 
 
 };
