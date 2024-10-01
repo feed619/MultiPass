@@ -3,6 +3,7 @@
 
 #include "../tools/settings.h"
 #include "tab.h"
+#include "values.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -23,12 +24,17 @@ public:
     Interface(QMainWindow *window);
 
     std::list<Tab*> tab_list;
+    std::list<Values*> values_list;
     Tab* tab;
     Tab* tab2;
     QFont font_big;
     QFont font_middle;
     QVBoxLayout *vertical_tab;
+    QVBoxLayout *vertical_values;
+
+
     QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacerValues;
     QWidget *verticalLayoutWidget;
     QWidget *centralwidget;
     QWidget *layoutWidget;
@@ -59,12 +65,21 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_ico;
     QLabel *label_tab_name;
-
+    QLabel * value_Class_1;
+    QLabel * value_Class_2;
     QWidget *containerWidget1;
-
+    QPushButton* btn_Class_1;
+    QPushButton*  btn_Class_2;
+    QHBoxLayout * value_copy_1;
+    QHBoxLayout * value_copy_2;
+private:
     void create_control_buttons();
-    void create_tab_list();
+    void create_frame_names();
+    void create_horizont_data();
     void create_scrollArea_tab();
+    void create_scrollArea_values();
+    void create_tab_list();
+    void create_values_list();
 
 };
 
