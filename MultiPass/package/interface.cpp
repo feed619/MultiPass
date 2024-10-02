@@ -35,7 +35,7 @@ Interface::Interface(QMainWindow *window) {
 
 
     window->setWindowTitle(QCoreApplication::translate("MultiPass", "MultiPass", nullptr));
-    btn_add->setText(QCoreApplication::translate("MultiPass", "add", nullptr));
+    btn_add->setText(QCoreApplication::translate("MultiPass", "    add", nullptr));
     btn_new->setText(QCoreApplication::translate("MultiPass", "new account", nullptr));
     btn_delete->setText(QCoreApplication::translate("MultiPass", "delete account", nullptr));
     label_tab->setText(QCoreApplication::translate("MultiPass", "site", nullptr));
@@ -69,11 +69,12 @@ void Interface::create_control_buttons()
     btn_add->setFixedSize(QSize(INTERFACE::BUTTON_ADD_WIDTH, INTERFACE::BUTTON_ADD_HEIGHT));
     btn_add->setFont(font_big);
     btn_add->setAcceptDrops(false);
+
     btn_add->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
 
     horizont_add_space->addWidget(btn_add);
 
-    space_add = new QSpacerItem(118, 60, QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Minimum);
+    space_add = new QSpacerItem(115, 60, QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Minimum);
 
     horizont_add_space->addItem(space_add);
 
@@ -114,7 +115,7 @@ void Interface::create_frame_names(){
     frame_names->setFrameShadow(QFrame::Raised);
     layoutWidget_4 = new QWidget(frame_names);
     layoutWidget_4->setObjectName("layoutWidget_4");
-    layoutWidget_4->setGeometry(QRect(2, 0, 901, 32));
+    layoutWidget_4->setGeometry(QRect(2, 0, 901, 28));
     horizont_names = new QHBoxLayout(layoutWidget_4);
     horizont_names->setObjectName("horizont_names");
     horizont_names->setContentsMargins(0, 0, 0, 0);
@@ -143,8 +144,8 @@ void Interface::create_frame_names(){
 
     space_values = new QSpacerItem(24, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
 
-    horizont_names->addItem(space_values);
     horizont_names->addWidget(btn_search);
+    horizont_names->addItem(space_values);
 
     label_email = new QLabel(layoutWidget_4);
     label_email->setObjectName("label_email");

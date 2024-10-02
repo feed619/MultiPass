@@ -18,9 +18,9 @@ const int BUTTON_SEARCH_WIDTH = 20;
 const int BUTTON_SEARCH_HEIGHT = 20;
 
 const int FRAME_WIDTH = 900;
-const int FRAME_HEIGHT = 30;
+const int FRAME_HEIGHT = 28;
 
-const int LABEL_SITE_WIDTH = 97;
+const int LABEL_SITE_WIDTH = 125;
 const int LABEL_SITE_HEIGHT = 20;
 
 const int LINE_EDIT_WIDTH = 90;
@@ -63,8 +63,9 @@ const char* const CSS_BACKGROUND_FRAME_COLOR = "background-color: rgb(57, 62, 70
 const char* const CSS_BUTTON_COLOR = "color: rgb(68, 73, 80);\n"
                                      "background-color: rgb(238, 238, 238);";
 const char* const CSS_TAB_LABEL_COLOR =  "color: rgb(189, 190, 192);";
-const char* const CSS_LABEL_EDIT_COLOR =  "color: rgb(189, 190, 192);\n"
-                                                     "background-color: rgb(238, 238, 238);";
+const char* const CSS_LABEL_EDIT_COLOR ="color: rgb(68, 73, 80);\n"
+                                        "font: 15pt \"Britannic Bold\";\n"
+                                        "background-color: rgb(238, 238, 238);";
 const char* const CSS_BUTTON_SEARCH_COLOR = "color: rgb(68, 73, 80);\n"
                                             "background-color: rgb(238, 238, 238);"
                                             "font: 15pt \"Britannic Bold\";";

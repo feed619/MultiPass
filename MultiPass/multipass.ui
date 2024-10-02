@@ -71,7 +71,7 @@
 background-color: rgb(238, 238, 238);</string>
            </property>
            <property name="text">
-            <string>     add</string>
+            <string>add</string>
            </property>
           </widget>
          </item>
@@ -228,25 +228,6 @@ background-color: rgb(238, 238, 238);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_search">
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>s</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QLineEdit" name="lineEdit_search">
            <property name="minimumSize">
             <size>
@@ -263,6 +244,25 @@ background-color: rgb(238, 238, 238);</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(189, 190, 192);
 background-color: rgb(238, 238, 238);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_search">
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>s</string>
            </property>
           </widget>
          </item>
@@ -730,6 +730,22 @@ border:none;</string>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>640</y>
+      <width>241</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
    </widget>
   </widget>
  </widget>
