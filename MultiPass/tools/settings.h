@@ -42,8 +42,17 @@ const int SCROLL_AREA_VALUES_HEIGHT = 510;
 const int LABEL_ICO_WIDTH = 40;
 const int LABEL_ICO_HEIGHT = 40;
 
+
 const int LABEL_TAB_NAME_WIDTH = 210;
 const int LABEL_TAB_NAME_HEIGHT = 40;
+
+const int LABELCOPY_VALUE_COPY_WIDTH = 150;
+const int LABELCOPY_VALUE_COPY_HEIGHT = 30;
+
+const int LABELCOPY_BTN_CLASS_WIDTH = 30;
+const int LABELCOPY_BTN_CLASS_HEIGHT = 30;
+
+
 
 // window name
 const char* const WINDOW_NAME = "MultiPass";
@@ -79,6 +88,18 @@ const char* const QSS_LABEL_TAB_NAME_COLOR =         "QPushButton {"
                                              "QPushButton:pressed {"
                                              "   background-color: rgb(150, 150, 150);"
                                              "}";
+
+const char* const CSS_LABELCOPY_LABEL_COLOR ="background-color:rgb(198, 199, 199);\n"
+                                              "font: 25pt \"Britannic Bold\";\n"
+                                              "color: rgb(68, 73, 80);\n"
+                                              "border:none;";
+
+const char* const CSS_LABELCOPY_BNT_COLOR ="background-color: rgb(198, 199, 199);\n"
+                                            "color: rgb(34, 40, 49);\n"
+                                            "font: 25pt \"Britannic Bold\";\n"
+                                            "border:none;";
+
+
 
 // fronts
 const char* const FONT_NAME = "Britannic Bold";

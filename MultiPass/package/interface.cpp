@@ -134,7 +134,6 @@ void Interface::create_frame_names(){
     btn_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_SEARCH_COLOR));
 
 
-    horizont_names->addWidget(btn_search);
 
     lineEdit_search = new QLineEdit(layoutWidget_4);
     lineEdit_search->setObjectName("lineEdit_search");
@@ -145,6 +144,7 @@ void Interface::create_frame_names(){
     space_values = new QSpacerItem(24, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
 
     horizont_names->addItem(space_values);
+    horizont_names->addWidget(btn_search);
 
     label_email = new QLabel(layoutWidget_4);
     label_email->setObjectName("label_email");
@@ -184,6 +184,7 @@ void Interface::create_horizont_data()
 
     Interface::create_scrollArea_values();
     Interface::create_values_list();
+
     vertical->addLayout(horizont_data);
 
 
@@ -215,8 +216,6 @@ void Interface::create_scrollArea_tab(){
     verticalSpacer = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
     vertical_tab->addItem(verticalSpacer);
 
-
-
 }
 
 void Interface::create_scrollArea_values()
@@ -224,73 +223,27 @@ void Interface::create_scrollArea_values()
 
     scrollArea_values = new QScrollArea(layoutWidget);
     scrollArea_values->setObjectName("scrollArea_values");
-    scrollArea_values->setMinimumSize(QSize(650, 510));
-    scrollArea_values->setMaximumSize(QSize(650, 520));
-    scrollArea_values->setStyleSheet(QString::fromUtf8("background-color: rgb(238, 238, 238);"));
+    scrollArea_values->setFixedSize(QSize(INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
+    scrollArea_values->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_SCROLL_AREA_VALUES_COLOR));
     scrollArea_values->setWidgetResizable(true);
     scrollAreaWidgetContents_values = new QWidget();
     scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
-    scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, 648, 518));
+    scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
 
     vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
     vertical_values->setObjectName("vertical_tab");
     vertical_values->setContentsMargins(0, 0, 0, 0);
     vertical_values->setSpacing(2);
 
-
-    //widget = new QWidget(scrollAreaWidgetContents_values);
-    //widget->setObjectName("widget");
-    //widget->setGeometry(QRect(0, 0, 651, 31));
-
-
-
     scrollArea_values->setWidget(scrollAreaWidgetContents_values);
     horizont_data->addWidget(scrollArea_values);
 
     verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
     vertical_values->addItem(verticalSpacerValues);
-
-    //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
-    //values_list->insertLayout(values_list->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
-
-    //values_list.push_back(new Values(widget));
-   // values_list.push_back(new Values(widget));
-    //values_list.push_back(new Values(widget));
-
-/*
-    scrollArea_values = new QScrollArea(layoutWidget);
-    scrollArea_values->setObjectName("scrollArea_values");
-    scrollArea_values->setFixedSize(QSize(INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
-    scrollArea_values->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_SCROLL_AREA_VALUES_COLOR));
-    scrollArea_values->setWidgetResizable(true);
-
-    scrollAreaWidgetContents_values = new QWidget();
-    scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
-    scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, 648, 508));
-
-    vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
-    vertical_values->setObjectName("vertical_values");
-    vertical_values->setContentsMargins(0, 0, 0, 0);
-    vertical_values->setSpacing(2);
-
-    scrollArea_values->setWidget(scrollAreaWidgetContents_values);
-
-    horizont_data->addWidget(scrollArea_values);
-
-    verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-    vertical_values->addItem(verticalSpacerValues);
-
-
-
-    values_list.push_back(new Values(scrollAreaWidgetContents_tab));
-    //vertical_values->insertLayout(vertical_values->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
-    vertical_values->addWidget(values_list.back()->frame_values);
-
-*/
 }
 void Interface::create_tab_list()
 {
-    for (int i = 1;i<25;i++)
+    for (int i = 1;i<7;i++)
     {
         tab_list.push_back(new Tab(scrollAreaWidgetContents_tab,"Youtube"));
         //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
@@ -300,7 +253,7 @@ void Interface::create_tab_list()
 
 void Interface::create_values_list()
 {
-    for (int i = 1;i<25;i++)
+    for (int i = 1;i<7;i++)
     {
         values_list.push_back(new Values(scrollAreaWidgetContents_tab));
         vertical_values->insertLayout(vertical_values->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)

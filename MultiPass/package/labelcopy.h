@@ -2,6 +2,7 @@
 #define LABELCOPY_H
 
 
+#include "../tools/settings.h"
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>

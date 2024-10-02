@@ -1,6 +1,7 @@
 #ifndef VALUES_H
 #define VALUES_H
 
+
 #include <list>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLabel>
