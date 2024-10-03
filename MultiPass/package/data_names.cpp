@@ -11,9 +11,9 @@ Data_names::Data_names(QWidget* widget) {
 
     label_email = new QLabel(widget);
     label_email->setObjectName("label_email");
-    label_email->setMinimumSize(QSize(60, 20));
+    label_email->setFixedSize(QSize(INTERFACE::LINE_TAB_NAME_WIDTH, INTERFACE::LINE_TAB_NAME_HEIGHT));
     //label_email->setFont(font_middle);
-    label_email->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_email->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_TAB_NAMES_COLOR));
 
     horizontalLayout_values->addWidget(label_email);
 
@@ -23,11 +23,12 @@ Data_names::Data_names(QWidget* widget) {
 
     label_password = new QLabel(widget);
     label_password->setObjectName("label_password");
-    label_password->setMinimumSize(QSize(60, 20));
+    label_password->setFixedSize(QSize(INTERFACE::LINE_TAB_NAME_WIDTH, INTERFACE::LINE_TAB_NAME_HEIGHT));
     //label_password->setFont(font_middle);
-    label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_password->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_TAB_NAMES_COLOR));
 
     horizontalLayout_values->addWidget(label_password);
+
     label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
     label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
 

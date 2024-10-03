@@ -109,158 +109,65 @@ void Interface::create_frame_names(){
 
     frame_names = new QFrame(layoutWidget);
     frame_names->setObjectName("frame_names");
-    frame_names->setMinimumSize(QSize(0, 30));
-    frame_names->setMaximumSize(QSize(16777215, 30));
-    frame_names->setStyleSheet(QString::fromUtf8("background-color: rgb(57, 62, 70);"));
+    frame_names->setFixedSize(QSize(INTERFACE::FRAME_WIDTH, INTERFACE::FRAME_HEIGHT));
+    frame_names->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BACKGROUND_FRAME_COLOR));
     frame_names->setFrameShape(QFrame::StyledPanel);
     frame_names->setFrameShadow(QFrame::Raised);
+
+    Interface::create_tab_names();
+    Interface::create_data_names();
+    space_e_p_2 = new QSpacerItem(10, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
+    horizontalLayout_main->addItem(space_e_p_2);
+    horizontalLayout_main->setStretch(0, 2);
+
+    vertical->addWidget(frame_names);
+
+}
+void Interface::create_tab_names()
+{
+
     widget = new QWidget(frame_names);
     widget->setObjectName("widget");
-    widget->setGeometry(QRect(0, 0, 901, 34));
+    widget->setGeometry(QRect(0, 0, 900, 30));
     horizontalLayout_main = new QHBoxLayout(widget);
     horizontalLayout_main->setObjectName("horizontalLayout_main");
     horizontalLayout_main->setContentsMargins(0, 0, 0, 0);
     horizontalLayout_tab = new QHBoxLayout();
     horizontalLayout_tab->setObjectName("horizontalLayout_tab");
     horizontalLayout_tab->setSizeConstraint(QLayout::SetMaximumSize);
+
     label_tab = new QLabel(widget);
     label_tab->setObjectName("label_tab");
-    label_tab->setMinimumSize(QSize(115, 20));
-    label_tab->setMaximumSize(QSize(90, 20));
+    label_tab->setFixedSize(QSize(INTERFACE::LABEL_SITE_WIDTH, INTERFACE::LABEL_SITE_HEIGHT));
     label_tab->setFont(font_middle);
-    label_tab->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
+    label_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
 
     horizontalLayout_tab->addWidget(label_tab);
 
     lineEdit_search = new QLineEdit(widget);
     lineEdit_search->setObjectName("lineEdit_search");
-    lineEdit_search->setMinimumSize(QSize(100, 20));
-    lineEdit_search->setMaximumSize(QSize(90, 20));
-    lineEdit_search->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);\n"
-                                                     "background-color: rgb(238, 238, 238);"));
+    lineEdit_search->setFixedSize(QSize(INTERFACE::LINE_EDIT_WIDTH, INTERFACE::LINE_EDIT_HEIGHT));
+    lineEdit_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_EDIT_COLOR));
 
     horizontalLayout_tab->addWidget(lineEdit_search);
 
     btn_search = new QPushButton(widget);
     btn_search->setObjectName("btn_search");
-    btn_search->setMinimumSize(QSize(20, 20));
-    btn_search->setMaximumSize(QSize(20, 20));
-
+    btn_search->setFixedSize(QSize(INTERFACE::BUTTON_SEARCH_WIDTH, INTERFACE::BUTTON_SEARCH_HEIGHT));
+    btn_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_SEARCH_COLOR));
     horizontalLayout_tab->addWidget(btn_search);
 
 
     horizontalLayout_main->addLayout(horizontalLayout_tab);
-
-
-/*
-
-    horizontalLayout_values = new QHBoxLayout();
-    horizontalLayout_values->setObjectName("horizontalLayout_values");
-    space_values = new QSpacerItem(20, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
-
-    horizontalLayout_values->addItem(space_values);
-
-    label_email = new QLabel(widget);
-    label_email->setObjectName("label_email");
-    label_email->setMinimumSize(QSize(60, 20));
-    label_email->setFont(font_middle);
-    label_email->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
-
-    horizontalLayout_values->addWidget(label_email);
-
-    space_e_p = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
-
-    horizontalLayout_values->addItem(space_e_p);
-
-    label_password = new QLabel(widget);
-    label_password->setObjectName("label_password");
-    label_password->setMinimumSize(QSize(60, 20));
-    label_password->setFont(font_middle);
-    label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
-
-    horizontalLayout_values->addWidget(label_password);
-*/
-    data_names = new Data_names(widget);
-    space_e_p_2 = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
-
-    //horizontalLayout_values->addItem(space_e_p_2);
-
-    horizontalLayout_main->addLayout(data_names->horizontalLayout_values);
-    horizontalLayout_main->addItem(space_e_p_2);
-
-   horizontalLayout_main->setStretch(0, 2);
-
-    vertical->addWidget(frame_names);
-
-/*
-    frame_names = new QFrame(layoutWidget);
-    frame_names->setObjectName("frame_names");
-    frame_names->setFixedSize(QSize(INTERFACE::FRAME_WIDTH, INTERFACE::FRAME_HEIGHT));
-    frame_names->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BACKGROUND_FRAME_COLOR));
-    frame_names->setFrameShape(QFrame::StyledPanel);
-    frame_names->setFrameShadow(QFrame::Raised);
-
-    layoutWidget_4 = new QWidget(frame_names);
-    layoutWidget_4->setObjectName("layoutWidget_4");
-    layoutWidget_4->setGeometry(QRect(0, 0, 900, 28));
-
-    horizont_names = new QHBoxLayout(layoutWidget_4);
-    horizont_names->setObjectName("horizont_names");
-    horizont_names->setContentsMargins(0, 0, 0, 0);
-    label_tab = new QLabel(layoutWidget_4);
-    label_tab->setObjectName("label_tab");
-    label_tab->setFixedSize(QSize(INTERFACE::LABEL_SITE_WIDTH, INTERFACE::LABEL_SITE_HEIGHT));
-    label_tab->setFont(font_middle);
-    label_tab->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
-    //label_tab->setStyleSheet("QLabel:hover { background-color: yellow; }"
-    //                         "QLabel {color: rgb(189, 190, 192);}");
-
-    horizont_names->addWidget(label_tab);
-
-    btn_search = new QPushButton(layoutWidget_4);
-    btn_search->setObjectName("btn_search");
-    btn_search->setFixedSize(QSize(INTERFACE::BUTTON_SEARCH_WIDTH, INTERFACE::BUTTON_SEARCH_HEIGHT));
-    btn_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_SEARCH_COLOR));
-
-
-
-    lineEdit_search = new QLineEdit(layoutWidget_4);
-    lineEdit_search->setObjectName("lineEdit_search");
-    lineEdit_search->setFixedSize(QSize(INTERFACE::LINE_EDIT_WIDTH, INTERFACE::LINE_EDIT_HEIGHT));
-    lineEdit_search->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_EDIT_COLOR));
-    horizont_names->addWidget(lineEdit_search);
-
-    space_values = new QSpacerItem(24, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
-
-    horizont_names->addWidget(btn_search);
-    horizont_names->addItem(space_values);
-
-    label_email = new QLabel(layoutWidget_4);
-    label_email->setObjectName("label_email");
-    label_email->setFixedSize(QSize(INTERFACE::LINE_EMAIL_WIDTH, INTERFACE::LINE_EMAIL_HEIGHT));
-    label_email->setFont(font_middle);
-    label_email->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
-
-    horizont_names->addWidget(label_email);
-
-    space_e_p = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
-
-    horizont_names->addItem(space_e_p);
-
-    label_password = new QLabel(layoutWidget_4);
-    label_password->setObjectName("label_password");
-    label_password->setFixedSize(QSize(INTERFACE::LINE_PASSWORD_WIDTH, INTERFACE::LINE_PASSWORD_HEIGHT));
-    label_password->setFont(font_middle);
-    label_password->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_TAB_LABEL_COLOR));
-
-    horizont_names->addWidget(label_password);
-
-
-    vertical->addWidget(frame_names);
-*/
-
 }
 
+void Interface::create_data_names()
+{
+
+    data_names = new Data_names(widget);
+    horizontalLayout_main->addLayout(data_names->horizontalLayout_values);
+
+}
 void Interface::create_horizont_data()
 {
 

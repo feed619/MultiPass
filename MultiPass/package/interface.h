@@ -90,6 +90,8 @@ private:
     void create_scrollArea_values();
     void create_tab_list();
     void create_values_list();
+    void create_tab_names();
+    void create_data_names();
 
 };
 

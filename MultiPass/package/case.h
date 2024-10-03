@@ -1,6 +1,5 @@
-#ifndef DATA_NAMES_H
-#define DATA_NAMES_H
-
+#ifndef CASE_H
+#define CASE_H
 #include "../tools/settings.h"
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
@@ -12,18 +11,13 @@
 #include <QtWidgets/QWidget>
 #include <QtCore/QVariant>
 
-class Data_names
+class Case
 {
 public:
-    Data_names(QWidget* widget);
+    Case(QWidget* widget, QString name);
     QHBoxLayout* horizontalLayout_values;
-    QSpacerItem* space_values;
-
-    QLabel* label_email;
-
-    QSpacerItem *space_e_p;
-    QLabel *label_password;
-
+    QLabel* label_name;
+    QPushButton* btn_view;
 };
 
-#endif // DATA_NAMES_H
+#endif // CASE_H

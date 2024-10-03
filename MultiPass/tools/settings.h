@@ -20,14 +20,14 @@ const int BUTTON_SEARCH_HEIGHT = 20;
 const int FRAME_WIDTH = 900;
 const int FRAME_HEIGHT = 30;
 
-const int LABEL_SITE_WIDTH = 125;
+const int LABEL_SITE_WIDTH = 126;
 const int LABEL_SITE_HEIGHT = 20;
 
 const int LINE_EDIT_WIDTH = 90;
 const int LINE_EDIT_HEIGHT = 20;
 
-const int LINE_EMAIL_WIDTH = 80;
-const int LINE_EMAIL_HEIGHT = 20;
+const int LINE_TAB_NAME_WIDTH = 120;
+const int LINE_TAB_NAME_HEIGHT = 20;
 
 const int LINE_PASSWORD_WIDTH = 120;
 const int LINE_PASSWORD_HEIGHT = 30;
@@ -69,6 +69,10 @@ const char* const CSS_LABEL_EDIT_COLOR ="color: rgb(68, 73, 80);\n"
 const char* const CSS_BUTTON_SEARCH_COLOR = "color: rgb(68, 73, 80);\n"
                                             "background-color: rgb(238, 238, 238);"
                                             "font: 15pt \"Britannic Bold\";";
+
+const char* const CSS_LABEL_TAB_NAMES_COLOR =  "color: rgb(189, 190, 192);\n"
+                                              "font: 15pt \"Britannic Bold\";";
+
 const char* const CSS_SCROLL_AREA_TAB_COLOR = "background-color: rgb(57, 62, 70);\n"
                                           "border: 1px solid rgb(57,62,70);";
 const char* const CSS_SCROLL_AREA_VALUES_COLOR = "background-color: rgb(238, 238, 238);\n"
