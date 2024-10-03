@@ -18,7 +18,7 @@ const int BUTTON_SEARCH_WIDTH = 20;
 const int BUTTON_SEARCH_HEIGHT = 20;
 
 const int FRAME_WIDTH = 900;
-const int FRAME_HEIGHT = 28;
+const int FRAME_HEIGHT = 30;
 
 const int LABEL_SITE_WIDTH = 125;
 const int LABEL_SITE_HEIGHT = 20;

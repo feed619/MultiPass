@@ -4,6 +4,7 @@
 #include "../tools/settings.h"
 #include "tab.h"
 #include "values.h"
+#include "data_names.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -25,16 +26,24 @@ public:
 
     std::list<Tab*> tab_list;
     std::list<Values*> values_list;
+
+    Data_names* data_names;
     Tab* tab;
     Tab* tab2;
     QFont font_big;
     QFont font_middle;
     QVBoxLayout *vertical_tab;
     QVBoxLayout *vertical_values;
+    QHBoxLayout *horizontalLayout_main;
+    QHBoxLayout *horizontalLayout_tab;
+    QHBoxLayout* horizontalLayout_values;
 
 
+    QSpacerItem *space_names;
     QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacerValues;
+    QSpacerItem *space_e_p_2;
+
     QWidget *verticalLayoutWidget;
     QWidget *centralwidget;
     QWidget *layoutWidget;
@@ -72,6 +81,7 @@ public:
     QPushButton*  btn_Class_2;
     QHBoxLayout * value_copy_1;
     QHBoxLayout * value_copy_2;
+    QHBoxLayout *horizont_tab_names;
 private:
     void create_control_buttons();
     void create_frame_names();

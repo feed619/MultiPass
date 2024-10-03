@@ -6,8 +6,8 @@
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef TEST5_H
-#define TEST5_H
+#ifndef TEST25_H
+#define TEST25_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -38,21 +38,24 @@ public:
     QSpacerItem *space_new_delete;
     QPushButton *btn_delete;
     QFrame *frame_names;
-    QWidget *layoutWidget_4;
-    QHBoxLayout *horizont_names;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_main;
+    QHBoxLayout *horizontalLayout_tab;
     QLabel *label_tab;
-    QPushButton *btn_search;
     QLineEdit *lineEdit_search;
-    QSpacerItem *space_values;
+    QPushButton *btn_search;
+    QHBoxLayout *horizontalLayout_values;
+    QSpacerItem *space_values_3;
     QLabel *label_email;
     QSpacerItem *space_e_p;
     QLabel *label_password;
+    QSpacerItem *space_e_p_2;
     QHBoxLayout *horizont_data;
     QScrollArea *scrollArea_tab;
     QWidget *scrollAreaWidgetContents_tab;
     QScrollArea *scrollArea_values;
     QWidget *scrollAreaWidgetContents_values;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
     QHBoxLayout *value_copy_1;
     QLabel *value_Class_1;
@@ -66,7 +69,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_ico_3;
     QLabel *label_tab_name_3;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget2;
     QHBoxLayout *value_copy;
     QLabel *value_Class;
     QPushButton *btn_Class;
@@ -151,61 +154,77 @@ public:
         frame_names->setStyleSheet(QString::fromUtf8("background-color: rgb(57, 62, 70);"));
         frame_names->setFrameShape(QFrame::StyledPanel);
         frame_names->setFrameShadow(QFrame::Raised);
-        layoutWidget_4 = new QWidget(frame_names);
-        layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(-6, 0, 901, 32));
-        horizont_names = new QHBoxLayout(layoutWidget_4);
-        horizont_names->setObjectName("horizont_names");
-        horizont_names->setContentsMargins(0, 0, 0, 0);
-        label_tab = new QLabel(layoutWidget_4);
+        widget = new QWidget(frame_names);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(0, 0, 901, 34));
+        horizontalLayout_main = new QHBoxLayout(widget);
+        horizontalLayout_main->setObjectName("horizontalLayout_main");
+        horizontalLayout_main->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_tab = new QHBoxLayout();
+        horizontalLayout_tab->setObjectName("horizontalLayout_tab");
+        horizontalLayout_tab->setSizeConstraint(QLayout::SetMaximumSize);
+        label_tab = new QLabel(widget);
         label_tab->setObjectName("label_tab");
         label_tab->setMinimumSize(QSize(123, 20));
         label_tab->setMaximumSize(QSize(90, 20));
         label_tab->setFont(font1);
         label_tab->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 
-        horizont_names->addWidget(label_tab);
+        horizontalLayout_tab->addWidget(label_tab);
 
-        btn_search = new QPushButton(layoutWidget_4);
-        btn_search->setObjectName("btn_search");
-        btn_search->setMinimumSize(QSize(20, 20));
-        btn_search->setMaximumSize(QSize(20, 20));
-
-        horizont_names->addWidget(btn_search);
-
-        lineEdit_search = new QLineEdit(layoutWidget_4);
+        lineEdit_search = new QLineEdit(widget);
         lineEdit_search->setObjectName("lineEdit_search");
         lineEdit_search->setMinimumSize(QSize(100, 20));
         lineEdit_search->setMaximumSize(QSize(90, 20));
         lineEdit_search->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);\n"
 "background-color: rgb(238, 238, 238);"));
 
-        horizont_names->addWidget(lineEdit_search);
+        horizontalLayout_tab->addWidget(lineEdit_search);
 
-        space_values = new QSpacerItem(20, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+        btn_search = new QPushButton(widget);
+        btn_search->setObjectName("btn_search");
+        btn_search->setMinimumSize(QSize(20, 20));
+        btn_search->setMaximumSize(QSize(20, 20));
 
-        horizont_names->addItem(space_values);
+        horizontalLayout_tab->addWidget(btn_search);
 
-        label_email = new QLabel(layoutWidget_4);
+
+        horizontalLayout_main->addLayout(horizontalLayout_tab);
+
+        horizontalLayout_values = new QHBoxLayout();
+        horizontalLayout_values->setObjectName("horizontalLayout_values");
+        space_values_3 = new QSpacerItem(20, 20, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_values->addItem(space_values_3);
+
+        label_email = new QLabel(widget);
         label_email->setObjectName("label_email");
         label_email->setMinimumSize(QSize(60, 20));
         label_email->setFont(font1);
         label_email->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 
-        horizont_names->addWidget(label_email);
+        horizontalLayout_values->addWidget(label_email);
 
         space_e_p = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
 
-        horizont_names->addItem(space_e_p);
+        horizontalLayout_values->addItem(space_e_p);
 
-        label_password = new QLabel(layoutWidget_4);
+        label_password = new QLabel(widget);
         label_password->setObjectName("label_password");
         label_password->setMinimumSize(QSize(60, 20));
         label_password->setFont(font1);
         label_password->setStyleSheet(QString::fromUtf8("color: rgb(189, 190, 192);"));
 
-        horizont_names->addWidget(label_password);
+        horizontalLayout_values->addWidget(label_password);
 
+        space_e_p_2 = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_values->addItem(space_e_p_2);
+
+
+        horizontalLayout_main->addLayout(horizontalLayout_values);
+
+        horizontalLayout_main->setStretch(1, 1);
 
         vertical->addWidget(frame_names);
 
@@ -235,17 +254,17 @@ public:
         scrollAreaWidgetContents_values = new QWidget();
         scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
         scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, 648, 518));
-        widget = new QWidget(scrollAreaWidgetContents_values);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(0, 0, 651, 31));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(scrollAreaWidgetContents_values);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(0, 0, 651, 34));
+        horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         value_copy_1 = new QHBoxLayout();
         value_copy_1->setSpacing(0);
         value_copy_1->setObjectName("value_copy_1");
-        value_Class_1 = new QLabel(widget);
+        value_Class_1 = new QLabel(layoutWidget1);
         value_Class_1->setObjectName("value_Class_1");
         value_Class_1->setEnabled(true);
         value_Class_1->setMinimumSize(QSize(0, 30));
@@ -258,7 +277,7 @@ public:
 
         value_copy_1->addWidget(value_Class_1);
 
-        btn_Class_1 = new QPushButton(widget);
+        btn_Class_1 = new QPushButton(layoutWidget1);
         btn_Class_1->setObjectName("btn_Class_1");
         btn_Class_1->setMinimumSize(QSize(30, 30));
         btn_Class_1->setMaximumSize(QSize(30, 30));
@@ -275,7 +294,7 @@ public:
         value_copy_2 = new QHBoxLayout();
         value_copy_2->setSpacing(0);
         value_copy_2->setObjectName("value_copy_2");
-        value_Class_2 = new QLabel(widget);
+        value_Class_2 = new QLabel(layoutWidget1);
         value_Class_2->setObjectName("value_Class_2");
         value_Class_2->setEnabled(true);
         value_Class_2->setMinimumSize(QSize(0, 30));
@@ -288,7 +307,7 @@ public:
 
         value_copy_2->addWidget(value_Class_2);
 
-        btn_Class_2 = new QPushButton(widget);
+        btn_Class_2 = new QPushButton(layoutWidget1);
         btn_Class_2->setObjectName("btn_Class_2");
         btn_Class_2->setMinimumSize(QSize(30, 30));
         btn_Class_2->setMaximumSize(QSize(30, 30));
@@ -347,14 +366,14 @@ public:
         horizontalLayout_3->addWidget(label_tab_name_3);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
-        layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(100, 720, 411, 32));
-        value_copy = new QHBoxLayout(layoutWidget1);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(80, 640, 411, 32));
+        value_copy = new QHBoxLayout(layoutWidget2);
         value_copy->setSpacing(0);
         value_copy->setObjectName("value_copy");
         value_copy->setContentsMargins(0, 0, 0, 0);
-        value_Class = new QLabel(layoutWidget1);
+        value_Class = new QLabel(layoutWidget2);
         value_Class->setObjectName("value_Class");
         value_Class->setEnabled(true);
         value_Class->setMinimumSize(QSize(0, 30));
@@ -366,7 +385,7 @@ public:
 
         value_copy->addWidget(value_Class);
 
-        btn_Class = new QPushButton(layoutWidget1);
+        btn_Class = new QPushButton(layoutWidget2);
         btn_Class->setObjectName("btn_Class");
         btn_Class->setMinimumSize(QSize(30, 30));
         btn_Class->setMaximumSize(QSize(30, 30));
@@ -387,7 +406,7 @@ public:
     void retranslateUi(QMainWindow *MultiPass)
     {
         MultiPass->setWindowTitle(QCoreApplication::translate("MultiPass", "MultiPass", nullptr));
-        btn_add->setText(QCoreApplication::translate("MultiPass", "     add", nullptr));
+        btn_add->setText(QCoreApplication::translate("MultiPass", "add", nullptr));
         btn_new->setText(QCoreApplication::translate("MultiPass", "new account", nullptr));
         btn_delete->setText(QCoreApplication::translate("MultiPass", "delete account", nullptr));
         label_tab->setText(QCoreApplication::translate("MultiPass", "  site", nullptr));
@@ -415,4 +434,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // TEST5_H
+#endif // TEST25_H

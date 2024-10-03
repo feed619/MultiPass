@@ -189,158 +189,185 @@ background-color: rgb(238, 238, 238);</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QWidget" name="layoutWidget_4">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>-6</x>
+          <x>0</x>
           <y>0</y>
           <width>901</width>
-          <height>32</height>
+          <height>34</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizont_names">
+        <layout class="QHBoxLayout" name="horizontalLayout_main" stretch="0,2">
          <item>
-          <widget class="QLabel" name="label_tab">
-           <property name="minimumSize">
-            <size>
-             <width>123</width>
-             <height>20</height>
-            </size>
+          <layout class="QHBoxLayout" name="horizontalLayout_tab">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMaximumSize</enum>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>90</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Britannic Bold</family>
-             <pointsize>20</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(189, 190, 192);</string>
-           </property>
-           <property name="text">
-            <string>  site</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_search">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>90</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(189, 190, 192);
+           <item>
+            <widget class="QLabel" name="label_tab">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Britannic Bold</family>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(189, 190, 192);</string>
+             </property>
+             <property name="text">
+              <string>  site</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_search">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>90</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(189, 190, 192);
 background-color: rgb(238, 238, 238);</string>
-           </property>
-          </widget>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_search">
+             <property name="minimumSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>s</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_search">
-           <property name="minimumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>s</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="space_values">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Minimum</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_email">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Britannic Bold</family>
-             <pointsize>20</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(189, 190, 192);</string>
-           </property>
-           <property name="text">
-            <string>email</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="space_e_p">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::MinimumExpanding</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>88</width>
-             <height>27</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_password">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Britannic Bold</family>
-             <pointsize>20</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(189, 190, 192);</string>
-           </property>
-           <property name="text">
-            <string>password</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_values">
+           <item>
+            <spacer name="space_values">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Minimum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_email">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Britannic Bold</family>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(189, 190, 192);</string>
+             </property>
+             <property name="text">
+              <string>email</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="space_e_p">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::MinimumExpanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>88</width>
+               <height>27</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_password">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Britannic Bold</family>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(189, 190, 192);</string>
+             </property>
+             <property name="text">
+              <string>password</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="space_e_p_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::MinimumExpanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>88</width>
+               <height>27</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -664,8 +691,8 @@ font: 25pt &quot;Britannic Bold&quot;;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>720</y>
+      <x>80</x>
+      <y>640</y>
       <width>411</width>
       <height>32</height>
      </rect>
@@ -730,22 +757,6 @@ border:none;</string>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>640</y>
-      <width>241</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
    </widget>
   </widget>
  </widget>
