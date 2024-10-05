@@ -26,7 +26,7 @@ const int LABEL_SITE_HEIGHT = 20;
 const int LINE_EDIT_WIDTH = 90;
 const int LINE_EDIT_HEIGHT = 20;
 
-const int LINE_TAB_NAME_WIDTH = 120;
+const int LINE_TAB_NAME_WIDTH = 160;
 const int LINE_TAB_NAME_HEIGHT = 20;
 
 const int LINE_PASSWORD_WIDTH = 120;

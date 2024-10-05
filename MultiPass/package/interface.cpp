@@ -40,10 +40,6 @@ Interface::Interface(QMainWindow *window) {
     btn_delete->setText(QCoreApplication::translate("MultiPass", "delete account", nullptr));
     label_tab->setText(QCoreApplication::translate("MultiPass", "site", nullptr));
     btn_search->setText(QCoreApplication::translate("MultiPass", "Y", nullptr));
-    //label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
-    //label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
-
-
 
     /*
     label_ico->setText(QString());
@@ -115,7 +111,7 @@ void Interface::create_frame_names(){
     frame_names->setFrameShadow(QFrame::Raised);
 
     Interface::create_tab_names();
-    Interface::create_data_names();
+    //Interface::create_data_names();
     space_e_p_2 = new QSpacerItem(10, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
     horizontalLayout_main->addItem(space_e_p_2);
     horizontalLayout_main->setStretch(0, 2);
@@ -164,7 +160,7 @@ void Interface::create_tab_names()
 void Interface::create_data_names()
 {
 
-    data_names = new Data_names(widget);
+    data_names = new Data_names(widget,false);
     horizontalLayout_main->addLayout(data_names->horizontalLayout_values);
 
 }
@@ -176,11 +172,16 @@ void Interface::create_horizont_data()
 
     horizont_data->setObjectName("horizont_data");
 
+    Interface::create_scrollArea_values();
+
     Interface::create_scrollArea_tab();
     Interface::create_tab_list();
 
-    Interface::create_scrollArea_values();
-    Interface::create_values_list();
+
+    scrollArea_values->setWidget(scrollAreaWidgetContents_values);
+    horizont_data->addWidget(scrollArea_values);
+
+    //Interface::create_values_list();
 
     vertical->addLayout(horizont_data);
 
@@ -227,24 +228,45 @@ void Interface::create_scrollArea_values()
     scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
     scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
 
-    vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
-    vertical_values->setObjectName("vertical_tab");
-    vertical_values->setContentsMargins(0, 0, 0, 0);
-    vertical_values->setSpacing(2);
+    // vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
+    // vertical_values->setObjectName("vertical_tab");
+    // vertical_values->setContentsMargins(0, 0, 0, 0);
+    // vertical_values->setSpacing(2);
 
-    scrollArea_values->setWidget(scrollAreaWidgetContents_values);
-    horizont_data->addWidget(scrollArea_values);
+    // scrollArea_values->setWidget(scrollAreaWidgetContents_values);
+    // horizont_data->addWidget(scrollArea_values);
 
-    verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-    vertical_values->addItem(verticalSpacerValues);
+    // verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+    // vertical_values->addItem(verticalSpacerValues);
 }
 void Interface::create_tab_list()
 {
-    for (int i = 1;i<7;i++)
+    for (int i = 1;i<2;i++)
     {
-        tab_list.push_back(new Tab(scrollAreaWidgetContents_tab,"Youtube"));
-        //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
+        if (i==2)
+        tab_list.push_back(new Tab(scrollAreaWidgetContents_values,"Youtube",false));
+        else
+            tab_list.push_back(new Tab(scrollAreaWidgetContents_values,"Youtube"));
         vertical_tab->insertLayout(vertical_tab->count() - 1, tab_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
+        horizontalLayout_main->addLayout(tab_list.back()->data_names->horizontalLayout_values);
+        //tab_list.back()->horizontalLayout->itemAt(2)->widget()->setVisible(false);
+        //tab_list.back()->values_list.back()->horizontalLayout;
+
+                    // for (int i = 0; i < tab_list.back()->values_list.back()->horizontalLayout->count(); ++i) {
+                    //     QWidget *widget = tab_list.back()->values_list.back()->horizontalLayout->itemAt(i)->widget();
+                    //     if (widget) {
+                    //         widget->setVisible(false);  // Переключаем видимость
+                    //     }
+                    // }
+
+
+        for (int i = 0; i < tab_list.back()->values_list.back()->label_copy_list.back()->value_copy->count(); ++i) {
+            QWidget *widget = tab_list.back()->values_list.back()->label_copy_list.back()->value_copy->itemAt(i)->widget();
+            if (widget) {
+                widget->setVisible(false);  // Переключаем видимость
+            }
+        }
+        //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
     }
 }
 
@@ -252,7 +274,7 @@ void Interface::create_values_list()
 {
     for (int i = 1;i<7;i++)
     {
-        values_list.push_back(new Values(scrollAreaWidgetContents_tab));
+        values_list.push_back(new Values(scrollAreaWidgetContents_values));
         vertical_values->insertLayout(vertical_values->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
 
     }
