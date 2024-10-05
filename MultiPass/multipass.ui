@@ -189,7 +189,7 @@ background-color: rgb(238, 238, 238);</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -718,6 +718,14 @@ font: 25pt &quot;Britannic Bold&quot;;</string>
          <height>30</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Britannic Bold</family>
+         <pointsize>25</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(238, 238, 238);
 font: 25pt &quot;Britannic Bold&quot;;
@@ -745,14 +753,21 @@ color: rgb(68, 73, 80);</string>
          <height>30</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>77-Essential-Icons</family>
+         <pointsize>20</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(238, 238, 238);
 color: rgb(34, 40, 49);
-font: 25pt &quot;Britannic Bold&quot;;
 border:none;</string>
        </property>
        <property name="text">
-        <string>k</string>
+        <string>Y</string>
        </property>
       </widget>
      </item>

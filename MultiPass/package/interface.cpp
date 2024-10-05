@@ -39,7 +39,7 @@ Interface::Interface(QMainWindow *window) {
     btn_new->setText(QCoreApplication::translate("MultiPass", "new account", nullptr));
     btn_delete->setText(QCoreApplication::translate("MultiPass", "delete account", nullptr));
     label_tab->setText(QCoreApplication::translate("MultiPass", "site", nullptr));
-    btn_search->setText(QCoreApplication::translate("MultiPass", "s", nullptr));
+    btn_search->setText(QCoreApplication::translate("MultiPass", "Y", nullptr));
     //label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
     //label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
 

@@ -15,9 +15,11 @@ class Case
 {
 public:
     Case(QWidget* widget, QString name);
+    QWidget * container_widget;
     QHBoxLayout* horizontalLayout_values;
     QLabel* label_name;
     QPushButton* btn_view;
+    QSpacerItem *space_n_b;
 };
 
 #endif // CASE_H

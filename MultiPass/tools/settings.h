@@ -64,7 +64,7 @@ const char* const CSS_BUTTON_COLOR = "color: rgb(68, 73, 80);\n"
                                      "background-color: rgb(238, 238, 238);";
 const char* const CSS_TAB_LABEL_COLOR =  "color: rgb(189, 190, 192);";
 const char* const CSS_LABEL_EDIT_COLOR ="color: rgb(68, 73, 80);\n"
-                                        "font: 15pt \"Britannic Bold\";\n"
+                                        "font: 12pt \"Britannic Bold\";\n"
                                         "background-color: rgb(238, 238, 238);";
 const char* const CSS_BUTTON_SEARCH_COLOR = "color: rgb(68, 73, 80);\n"
                                             "background-color: rgb(238, 238, 238);"
@@ -97,14 +97,15 @@ const char* const QSS_LABEL_TAB_NAME_COLOR =         "QPushButton {"
 const char* const CSS_LABELCOPY_LABEL_COLOR ="background-color:rgb(198, 199, 199);\n"
                                               "font: 25pt \"Britannic Bold\";\n"
                                               "color: rgb(68, 73, 80);\n"
-                                              "border:none;";
+                                              "border:none;"
+    ;
 
-const char* const CSS_LABELCOPY_BNT_COLOR ="background-color: rgb(198, 199, 199);\n"
+const char* const CSS_LABELCOPY_BNT_COLOR ="background-color: rgb(112, 112, 112);\n"
                                             "color: rgb(34, 40, 49);\n"
                                             "font: 25pt \"Britannic Bold\";\n"
                                             "border:none;";
-
-
+//(57, 62, 70)
+//(198, 199, 199)
 
 // fronts
 const char* const FONT_NAME = "Britannic Bold";

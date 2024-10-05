@@ -1,6 +1,10 @@
 #include "data_names.h"
 
-Data_names::Data_names(QWidget* widget) {
+Data_names::Data_names(QWidget* widget,
+                    bool email,
+                    bool login,
+                    bool password)
+{
 
 
     horizontalLayout_values = new QHBoxLayout();
@@ -9,27 +13,30 @@ Data_names::Data_names(QWidget* widget) {
 
     horizontalLayout_values->addItem(space_values);
 
-    label_email = new QLabel(widget);
-    label_email->setObjectName("label_email");
-    label_email->setFixedSize(QSize(INTERFACE::LINE_TAB_NAME_WIDTH, INTERFACE::LINE_TAB_NAME_HEIGHT));
-    //label_email->setFont(font_middle);
-    label_email->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_TAB_NAMES_COLOR));
+    if (email)
+    {
+        case_email = new Case(widget,"email");
+        horizontalLayout_values->addItem(case_email->horizontalLayout_values);
+    }
 
-    horizontalLayout_values->addWidget(label_email);
+    //case_email->container_widget->hide();
+    if (login)
+    {
+        case_login= new Case(widget,"login");
+        horizontalLayout_values->addItem(case_login->horizontalLayout_values);
+        //horizontalLayout_values->removeItem(case_login->horizontalLayout_values);
+    }
+    if (password)
+    {
+        case_password= new Case(widget,"password");
+        horizontalLayout_values->addItem(case_password->horizontalLayout_values);
+    }
 
-    space_e_p = new QSpacerItem(88, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
-
-    horizontalLayout_values->addItem(space_e_p);
-
-    label_password = new QLabel(widget);
-    label_password->setObjectName("label_password");
-    label_password->setFixedSize(QSize(INTERFACE::LINE_TAB_NAME_WIDTH, INTERFACE::LINE_TAB_NAME_HEIGHT));
-    //label_password->setFont(font_middle);
-    label_password->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABEL_TAB_NAMES_COLOR));
-
-    horizontalLayout_values->addWidget(label_password);
-
-    label_email->setText(QCoreApplication::translate("MultiPass", "email", nullptr));
-    label_password->setText(QCoreApplication::translate("MultiPass", "password", nullptr));
-
+    //case_password->horizontalLayout_values->itemAt(2)->widget()->setVisible(false);
+    // for (int i = 0; i < case_password->horizontalLayout_values->count(); ++i) {
+    //     QWidget *widget = case_password->horizontalLayout_values->itemAt(i)->widget();
+    //     if (widget) {
+    //         widget->setVisible(false);  // Переключаем видимость
+    //     }
+    // }
 }
