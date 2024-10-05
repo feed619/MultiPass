@@ -12,7 +12,7 @@ class LabelCopy
 public:
     LabelCopy(QWidget* widget);
 
-    QHBoxLayout *value_copy;
+    QHBoxLayout *horizontalLayout_value_copy;
     QLabel *value_Class;
     QPushButton *btn_Class;
 

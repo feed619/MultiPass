@@ -9,6 +9,7 @@
 #ifndef MULTIPASS_H
 #define MULTIPASS_H
 
+#include "tab.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -22,6 +23,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "interface.h"
+#include <list>
 
 QT_BEGIN_NAMESPACE
 
@@ -30,6 +32,12 @@ class MultiPass
 public:
     MultiPass();
     QMainWindow *window;
+    Interface *interface;
+    std::list<Tab*> tab_list;
+    Tab* mainTab;
+    void create_tabs();
+    void visibleWidgets();
+    void visiableLayoutWidgets(QHBoxLayout* layout);
 };
 
 

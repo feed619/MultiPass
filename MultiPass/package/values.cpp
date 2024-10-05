@@ -30,16 +30,16 @@ Values::Values(QWidget* verticalLayoutWidget,
     if (email)
     {
         label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
-        horizontalLayout->addLayout(label_copy_list.back()->value_copy);
+        horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
     if (login)
     {
         label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
-        horizontalLayout->addLayout(label_copy_list.back()->value_copy);
+        horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
     if (password)
     {
         label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
-        horizontalLayout->addLayout(label_copy_list.back()->value_copy);
+        horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
 }

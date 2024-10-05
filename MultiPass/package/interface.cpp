@@ -28,9 +28,6 @@ Interface::Interface(QMainWindow *window) {
     Interface::create_horizont_data();
 
 
-
-
-    //
     window->setCentralWidget(centralwidget);
 
 
@@ -41,13 +38,6 @@ Interface::Interface(QMainWindow *window) {
     label_tab->setText(QCoreApplication::translate("MultiPass", "site", nullptr));
     btn_search->setText(QCoreApplication::translate("MultiPass", "Y", nullptr));
 
-    /*
-    label_ico->setText(QString());
-#if QT_CONFIG(tooltip)
-    label_tab_name->setToolTip(QCoreApplication::translate("MultiPass", "<html><head/><body><p><br/></p></body></html>", nullptr));
-#endif // QT_CONFIG(tooltip)
-    label_tab_name->setText(QCoreApplication::translate("MultiPass", "Youtube", nullptr));
-*/
     QMetaObject::connectSlotsByName(window);
 }
 
@@ -175,7 +165,7 @@ void Interface::create_horizont_data()
     Interface::create_scrollArea_values();
 
     Interface::create_scrollArea_tab();
-    Interface::create_tab_list();
+    //Interface::create_tab_list();
 
 
     scrollArea_values->setWidget(scrollAreaWidgetContents_values);
@@ -228,16 +218,6 @@ void Interface::create_scrollArea_values()
     scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
     scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
 
-    // vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
-    // vertical_values->setObjectName("vertical_tab");
-    // vertical_values->setContentsMargins(0, 0, 0, 0);
-    // vertical_values->setSpacing(2);
-
-    // scrollArea_values->setWidget(scrollAreaWidgetContents_values);
-    // horizont_data->addWidget(scrollArea_values);
-
-    // verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-    // vertical_values->addItem(verticalSpacerValues);
 }
 void Interface::create_tab_list()
 {
@@ -260,8 +240,8 @@ void Interface::create_tab_list()
                     // }
 
 
-        for (int i = 0; i < tab_list.back()->values_list.back()->label_copy_list.back()->value_copy->count(); ++i) {
-            QWidget *widget = tab_list.back()->values_list.back()->label_copy_list.back()->value_copy->itemAt(i)->widget();
+        for (int i = 0; i < tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->count(); ++i) {
+            QWidget *widget = tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->itemAt(i)->widget();
             if (widget) {
                 widget->setVisible(false);  // Переключаем видимость
             }

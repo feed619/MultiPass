@@ -16,6 +16,7 @@ Data_names::Data_names(QWidget* widget,
     if (email)
     {
         case_email = new Case(widget,"email");
+        case_list.push_back(case_email);
         horizontalLayout_values->addItem(case_email->horizontalLayout_values);
     }
 
@@ -23,12 +24,14 @@ Data_names::Data_names(QWidget* widget,
     if (login)
     {
         case_login= new Case(widget,"login");
+        case_list.push_back(case_login);
         horizontalLayout_values->addItem(case_login->horizontalLayout_values);
         //horizontalLayout_values->removeItem(case_login->horizontalLayout_values);
     }
     if (password)
     {
         case_password= new Case(widget,"password");
+        case_list.push_back(case_password);
         horizontalLayout_values->addItem(case_password->horizontalLayout_values);
     }
 

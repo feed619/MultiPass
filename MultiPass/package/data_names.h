@@ -12,6 +12,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include <QtCore/QVariant>
+#include <list>
 
 class Data_names
 {
@@ -24,6 +25,7 @@ public:
 
     QSpacerItem *space_e_p;
     //QLabel *label_password;
+    std::list<Case*> case_list;
 
     Case *case_email;
     Case *case_login;
