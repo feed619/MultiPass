@@ -10,7 +10,7 @@ Tab::Tab(QWidget* scrollAreaWidgetContents_values,QString tab_name,bool email,bo
     widget->setObjectName("widget");
     widget->setGeometry(QRect(50, 630, 259, 41));
 */
-    data_names = new Data_names(scrollAreaWidgetContents_values,email_,login_,password_);
+    //data_names = new Data_names(scrollAreaWidgetContents_values,email_,login_,password_);
 
     horizontalLayout = new QHBoxLayout();
     horizontalLayout->setSpacing(0);
@@ -48,16 +48,16 @@ Tab::Tab(QWidget* scrollAreaWidgetContents_values,QString tab_name,bool email,bo
     verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
     vertical_values->addItem(verticalSpacerValues);
 
-    Tab::create_values_list(scrollAreaWidgetContents_values);
+    //Tab::create_values_list(scrollAreaWidgetContents_values);
 
 }
 
-void Tab::create_values_list(QWidget* scrollAreaWidgetContents_values)
-{
-    for (int i = 1;i<3;i++)
-    {
-        values_list.push_back(new Values(scrollAreaWidgetContents_values,email_,login_,password_));
-        vertical_values->insertLayout(vertical_values->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
+// void Tab::create_values_list(QWidget* scrollAreaWidgetContents_values)
+// {
+//     for (int i = 1;i<=4;i++)
+//     {
+//         values_list.push_back(new Values(scrollAreaWidgetContents_values,email_,login_,password_));
+//         vertical_values->insertLayout(vertical_values->count() - 1, values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
 
-    }
-}
+//     }
+// }

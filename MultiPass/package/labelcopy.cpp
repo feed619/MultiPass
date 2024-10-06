@@ -1,6 +1,6 @@
 #include "labelcopy.h"
 
-LabelCopy::LabelCopy(QWidget* widget) {
+LabelCopy::LabelCopy(QWidget* widget,QString value) {
 
     horizontalLayout_value_copy = new QHBoxLayout();
     horizontalLayout_value_copy->setSpacing(0);
@@ -12,7 +12,7 @@ LabelCopy::LabelCopy(QWidget* widget) {
     value_Class->setMaximumSize(QSize(10000, 30));
     value_Class->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_LABELCOPY_LABEL_COLOR));
     value_Class->setAlignment(Qt::AlignCenter);
-
+    value_Class->setText(value);
     horizontalLayout_value_copy->addWidget(value_Class);
 
     btn_Class = new QPushButton();

@@ -10,6 +10,9 @@
 #define MULTIPASS_H
 
 #include "tab.h"
+#include "../tools/datavalues.h"
+#include "values.h"
+
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -33,11 +36,16 @@ public:
     MultiPass();
     QMainWindow *window;
     Interface *interface;
+
     std::list<Tab*> tab_list;
+    std::list<DataValues*> data_values_list;
+
     Tab* mainTab;
-    void create_tabs();
+    void CreateTabs();
+    void CreateTabsByDataValues();
     void visibleWidgets();
     void visiableLayoutWidgets(QHBoxLayout* layout);
+    void LoadDataValues();
 };
 
 

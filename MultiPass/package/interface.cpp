@@ -101,7 +101,7 @@ void Interface::create_frame_names(){
     frame_names->setFrameShadow(QFrame::Raised);
 
     Interface::create_tab_names();
-    //Interface::create_data_names();
+    Interface::create_data_names();
     space_e_p_2 = new QSpacerItem(10, 27, QSizePolicy::Policy::MinimumExpanding, QSizePolicy::Policy::Minimum);
     horizontalLayout_main->addItem(space_e_p_2);
     horizontalLayout_main->setStretch(0, 2);
@@ -150,7 +150,7 @@ void Interface::create_tab_names()
 void Interface::create_data_names()
 {
 
-    data_names = new Data_names(widget,false);
+    data_names = new Data_names(widget);
     horizontalLayout_main->addLayout(data_names->horizontalLayout_values);
 
 }

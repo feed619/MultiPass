@@ -95,7 +95,7 @@ const char* const QSS_LABEL_TAB_NAME_COLOR =         "QPushButton {"
                                              "}";
 
 const char* const CSS_LABELCOPY_LABEL_COLOR ="background-color:rgb(198, 199, 199);\n"
-                                              "font: 25pt \"Britannic Bold\";\n"
+                                              "font: 15pt \"Gabriola\";\n"
                                               "color: rgb(68, 73, 80);\n"
                                               "border:none;"
     ;

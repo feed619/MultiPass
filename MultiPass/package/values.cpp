@@ -1,9 +1,17 @@
 #include "values.h"
 
 Values::Values(QWidget* verticalLayoutWidget,
-               bool email,
-               bool login,
-               bool password) {
+               QString email,
+               QString login,
+               QString password)
+
+
+
+               // bool email,
+               // bool login,
+               // bool password)
+
+{
 
     horizontalLayout = new QHBoxLayout();
     horizontalLayout->setSpacing(2);
@@ -27,19 +35,19 @@ Values::Values(QWidget* verticalLayoutWidget,
 
     // horizontalLayout->addWidget(btn_Class);
 
-    if (email)
+    if (!email.isEmpty())
     {
-        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
+        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget,email));
         horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
-    if (login)
+    if (!login.isEmpty())
     {
-        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
+        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget,login));
         horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
-    if (password)
+    if (!password.isEmpty())
     {
-        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget));
+        label_copy_list.push_back(new LabelCopy(verticalLayoutWidget,password));
         horizontalLayout->addLayout(label_copy_list.back()->horizontalLayout_value_copy);
     }
 }

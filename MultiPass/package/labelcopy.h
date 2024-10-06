@@ -10,7 +10,7 @@
 class LabelCopy
 {
 public:
-    LabelCopy(QWidget* widget);
+    LabelCopy(QWidget* widget,QString value);
 
     QHBoxLayout *horizontalLayout_value_copy;
     QLabel *value_Class;

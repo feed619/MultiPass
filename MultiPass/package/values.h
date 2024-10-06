@@ -13,7 +13,7 @@
 class Values
 {
 public:
-    Values(QWidget* verticalLayoutWidget,bool email =true,bool login =true,bool password =true);
+    Values(QWidget* verticalLayoutWidget,QString email =NULL,QString login =NULL,QString password =NULL);
 
     QHBoxLayout *value_copy;
     QLabel *value_Class;
