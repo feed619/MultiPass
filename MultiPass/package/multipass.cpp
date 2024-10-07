@@ -19,6 +19,14 @@ void MultiPass::LoadDataValues()
     d_values->AddDataValue("poipqwr@gmail.com","porok","512616");
     d_values->AddDataValue("qwpeo@gmail.com","srabik","74523d");
     d_values->AddDataValue("nqwme@gmail.com","bold","9127u4");
+
+    this->data_values_list.push_back(new DataValues("twitch",true,true,true));
+    DataValues* d_values1 = this->data_values_list.back();
+
+    d_values1->AddDataValue("qkewpksd@gmail.com","jkasd","1235sad");
+    d_values1->AddDataValue("oooooo@gmail.com","porok","512616");
+    d_values1->AddDataValue("12dasdj@gmail.com","srabik","74523d");
+    d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
 }
 
 void MultiPass::CreateTabsByDataValues()
@@ -27,14 +35,17 @@ void MultiPass::CreateTabsByDataValues()
     for(DataValues* d_values:this->data_values_list)
     {
         tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,d_values->TabName));
+        qDebug()<<d_values->TabName;
         Tab *tab = tab_list.back();
         interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab_list.back()->horizontalLayout);
         for (Data* data:d_values->data_list)
         {
             tab->values_list.push_back(new Values(interface->scrollAreaWidgetContents_values,data->email,data->login,data->password));
-            tab->vertical_values->insertLayout(tab->vertical_values->count() - 1, tab->values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
+            interface->vertical_values->insertLayout(interface->vertical_values->count() - 1, tab->values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
 
         }
+        MultiPass::visibleWidgets();
+        //MultiPass::visibleWidgets();
     }
 }
 void MultiPass::CreateTabs()
@@ -101,7 +112,8 @@ void MultiPass::visiableLayoutWidgets(QHBoxLayout* layout)
     for (int i = 0; i < layout->count(); ++i) {
         QWidget *widget = layout->itemAt(i)->widget();
         if (widget) {
-            widget->setVisible(widget->isVisible());
+            //qDebug()<<widget->isHidden();
+            widget->setVisible(widget->isHidden());
             //widget->deleteLater();
         }
     }

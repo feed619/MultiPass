@@ -37,16 +37,16 @@ Tab::Tab(QWidget* scrollAreaWidgetContents_values,QString tab_name,bool email,bo
     label_ico->setText(QString());
     label_tab_name->setText(tab_name);
 
-    vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
-    vertical_values->setObjectName("vertical_tab");
-    vertical_values->setContentsMargins(0, 0, 0, 0);
-    vertical_values->setSpacing(2);
+    // vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
+    // vertical_values->setObjectName("vertical_tab");
+    // vertical_values->setContentsMargins(0, 0, 0, 0);
+    // vertical_values->setSpacing(2);
+    // verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+    // vertical_values->addItem(verticalSpacerValues);
 
     //scrollArea_values->setWidget(scrollAreaWidgetContents_values);
     //horizont_data->addWidget(scrollArea_values);
 
-    verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-    vertical_values->addItem(verticalSpacerValues);
 
     //Tab::create_values_list(scrollAreaWidgetContents_values);
 

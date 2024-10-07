@@ -218,6 +218,15 @@ void Interface::create_scrollArea_values()
     scrollAreaWidgetContents_values->setObjectName("scrollAreaWidgetContents_values");
     scrollAreaWidgetContents_values->setGeometry(QRect(0, 0, INTERFACE::SCROLL_AREA_VALUES_WIDTH, INTERFACE::SCROLL_AREA_VALUES_HEIGHT));
 
+    vertical_values = new QVBoxLayout(scrollAreaWidgetContents_values);
+    vertical_values->setObjectName("vertical_tab");
+    vertical_values->setContentsMargins(0, 0, 0, 0);
+    vertical_values->setSpacing(2);
+    verticalSpacerValues = new QSpacerItem(78, 218, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+    vertical_values->addItem(verticalSpacerValues);
+
+
+
 }
 void Interface::create_tab_list()
 {
