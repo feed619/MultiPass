@@ -11,6 +11,8 @@
 
 #include "tab.h"
 #include "../tools/datavalues.h"
+#include "../tools/tabpushbutton.h"
+
 #include "values.h"
 
 #include <QtCore/QVariant>
@@ -36,7 +38,7 @@ public:
     MultiPass();
     QMainWindow *window;
     Interface *interface;
-
+    TabPushButton* tab_btn;
     std::list<Tab*> tab_list;
     std::list<DataValues*> data_values_list;
 

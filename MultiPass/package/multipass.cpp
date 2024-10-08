@@ -4,8 +4,20 @@ MultiPass::MultiPass()
 {
     this->window = new QMainWindow();
     interface = new Interface(this->window);
+    //tab_btn = new TabPushButton();
+
+
+    //tab_btn->setObjectName("label_tab_name");
+    // tab_btn->setMaximumSize(QSize(INTERFACE::LABEL_TAB_NAME_WIDTH, INTERFACE::LABEL_TAB_NAME_HEIGHT));
+    // tab_btn->setLayoutDirection(Qt::LeftToRight);
+    // tab_btn->setAutoFillBackground(false);
+    // tab_btn->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_LABEL_TAB_NAME_COLOR));
+
+    // interface->vertical_values->insertWidget(interface->vertical_values->count() - 1, tab_btn);
+
     MultiPass::LoadDataValues();
     MultiPass::CreateTabsByDataValues();
+
     //MultiPass::CreateTabs();
     //MultiPass::visibleWidgets();
 };
