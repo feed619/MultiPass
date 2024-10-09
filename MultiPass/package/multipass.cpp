@@ -4,16 +4,21 @@ MultiPass::MultiPass()
 {
     this->window = new QMainWindow();
     interface = new Interface(this->window);
-    //tab_btn = new TabPushButton();
 
 
-    //tab_btn->setObjectName("label_tab_name");
+
+
+    // Проверка TAbPushButton
+    // tab_btn = new TabPushButton("asdasdasd");
+
+
+    // tab_btn->setObjectName("label_tab_name");
     // tab_btn->setMaximumSize(QSize(INTERFACE::LABEL_TAB_NAME_WIDTH, INTERFACE::LABEL_TAB_NAME_HEIGHT));
     // tab_btn->setLayoutDirection(Qt::LeftToRight);
     // tab_btn->setAutoFillBackground(false);
     // tab_btn->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_LABEL_TAB_NAME_COLOR));
 
-    // interface->vertical_values->insertWidget(interface->vertical_values->count() - 1, tab_btn);
+    // interface->vertical_tab->insertWidget(interface->vertical_tab->count() - 1, tab_btn);
 
     MultiPass::LoadDataValues();
     MultiPass::CreateTabsByDataValues();
@@ -43,20 +48,20 @@ void MultiPass::LoadDataValues()
 
 void MultiPass::CreateTabsByDataValues()
 {
-    Values *asd;
     for(DataValues* d_values:this->data_values_list)
     {
-        tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,d_values->TabName));
+        tab_list.push_back(new Tab(d_values->TabName));
+        //tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,d_values->TabName));
         qDebug()<<d_values->TabName;
         Tab *tab = tab_list.back();
-        interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab_list.back()->horizontalLayout);
+        interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab->horizontalLayout);
         for (Data* data:d_values->data_list)
         {
-            tab->values_list.push_back(new Values(interface->scrollAreaWidgetContents_values,data->email,data->login,data->password));
-            interface->vertical_values->insertLayout(interface->vertical_values->count() - 1, tab->values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
+            tab->tab_btn->values_list.push_back(new Values(interface->scrollAreaWidgetContents_values,data->email,data->login,data->password));
+            interface->vertical_values->insertLayout(interface->vertical_values->count() - 1, tab->tab_btn->values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
 
         }
-        MultiPass::visibleWidgets();
+        MultiPass::visibleWidgets(tab);
         //MultiPass::visibleWidgets();
     }
 }
@@ -67,8 +72,8 @@ void MultiPass::CreateTabs()
         // if (i==8)
         //     tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,"Youtube",false));
         // else
-        tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,"Youtube"));
-        interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab_list.back()->horizontalLayout);
+// tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,"Youtube"));
+// interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab_list.back()->horizontalLayout);
         //interface->horizontalLayout_main->addLayout(tab_list.back()->data_names->horizontalLayout_values);
         //tab_list.back()->horizontalLayout->itemAt(2)->widget()->setVisible(false);
         //tab_list.back()->values_list.back()->horizontalLayout;
@@ -93,9 +98,9 @@ void MultiPass::CreateTabs()
     }
 }
 
-void MultiPass::visibleWidgets()
+void MultiPass::visibleWidgets(Tab* tab)
 {
-    for(Values* value_:tab_list.back()->values_list)
+    for(Values* value_:tab->tab_btn->values_list)
     {
         for(LabelCopy* labelCopy_:value_->label_copy_list)
         {

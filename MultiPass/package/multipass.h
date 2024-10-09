@@ -38,14 +38,13 @@ public:
     MultiPass();
     QMainWindow *window;
     Interface *interface;
-    TabPushButton* tab_btn;
     std::list<Tab*> tab_list;
     std::list<DataValues*> data_values_list;
 
     Tab* mainTab;
     void CreateTabs();
     void CreateTabsByDataValues();
-    void visibleWidgets();
+    void visibleWidgets(Tab* tab);
     void visiableLayoutWidgets(QHBoxLayout* layout);
     void LoadDataValues();
 };

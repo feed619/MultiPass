@@ -2,7 +2,8 @@
 #define TABPUSHBUTTON_H
 
 
-
+#include "../package/values.h"
+#include "settings.h"
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -12,9 +13,15 @@
 class TabPushButton:public QPushButton
 {
 public:
+    std::list<Values*> values_list;
+    QHBoxLayout *horizontalLayout ;
+    QLabel *label_ico;
 
-    int a =13;
-    explicit TabPushButton(const QString &text, QWidget *parent = nullptr):QPushButton(text,parent){};
+
+    bool email_;
+    bool login_;
+    bool password_;
+    explicit TabPushButton(const QString &text, QWidget *parent = nullptr);
 
     //:QPushButton(parent){};
 };

@@ -233,9 +233,9 @@ void Interface::create_tab_list()
     for (int i = 1;i<2;i++)
     {
         if (i==2)
-        tab_list.push_back(new Tab(scrollAreaWidgetContents_values,"Youtube",false));
+        tab_list.push_back(new Tab("Youtube",false));
         else
-            tab_list.push_back(new Tab(scrollAreaWidgetContents_values,"Youtube"));
+            tab_list.push_back(new Tab("Youtube"));
         vertical_tab->insertLayout(vertical_tab->count() - 1, tab_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
         horizontalLayout_main->addLayout(tab_list.back()->data_names->horizontalLayout_values);
         //tab_list.back()->horizontalLayout->itemAt(2)->widget()->setVisible(false);
@@ -249,12 +249,12 @@ void Interface::create_tab_list()
                     // }
 
 
-        for (int i = 0; i < tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->count(); ++i) {
-            QWidget *widget = tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->itemAt(i)->widget();
-            if (widget) {
-                widget->setVisible(false);  // Переключаем видимость
-            }
-        }
+        // for (int i = 0; i < tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->count(); ++i) {
+        //     QWidget *widget = tab_list.back()->values_list.back()->label_copy_list.back()->horizontalLayout_value_copy->itemAt(i)->widget();
+        //     if (widget) {
+        //         widget->setVisible(false);  // Переключаем видимость
+        //     }
+        // }
         //containerWidget1->setLayout(tab_list.back()->horizontalLayout);
     }
 }
