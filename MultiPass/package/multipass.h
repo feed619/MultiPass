@@ -14,6 +14,8 @@
 #include "../tools/tabpushbutton.h"
 
 #include "values.h"
+#include <QPushButton>
+#include <QMainWindow>
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -32,7 +34,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class MultiPass
+class MultiPass:public QWidget
 {
 public:
     MultiPass();
@@ -41,12 +43,15 @@ public:
     std::list<Tab*> tab_list;
     std::list<DataValues*> data_values_list;
 
-    Tab* mainTab;
+    Tab* mainTab = nullptr;
     void CreateTabs();
     void CreateTabsByDataValues();
     void visibleWidgets(Tab* tab);
     void visiableLayoutWidgets(QHBoxLayout* layout);
     void LoadDataValues();
+    void visiableDataNames(bool email,bool login,bool password);
+
+    void onButtonClicked();
 };
 
 

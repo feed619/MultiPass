@@ -9,7 +9,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-class Tab:QPushButton
+class Tab:public QWidget
 {
 public:
     Tab(QString tab_name,bool email =true,bool login =true,bool password =true);
@@ -29,6 +29,11 @@ public:
     bool password_;
 
     void create_values_list(QWidget* scrollAreaWidgetContents_values);
+
+    void visibleWidgets();
+    void visiableLayoutWidgets(QHBoxLayout* layout);
+private slots:
+    void onButtonClicked();
 };
 
 #endif // TAB_H

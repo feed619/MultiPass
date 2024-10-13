@@ -5,26 +5,12 @@ MultiPass::MultiPass()
     this->window = new QMainWindow();
     interface = new Interface(this->window);
 
-
-
-
-    // Проверка TAbPushButton
-    // tab_btn = new TabPushButton("asdasdasd");
-
-
-    // tab_btn->setObjectName("label_tab_name");
-    // tab_btn->setMaximumSize(QSize(INTERFACE::LABEL_TAB_NAME_WIDTH, INTERFACE::LABEL_TAB_NAME_HEIGHT));
-    // tab_btn->setLayoutDirection(Qt::LeftToRight);
-    // tab_btn->setAutoFillBackground(false);
-    // tab_btn->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_LABEL_TAB_NAME_COLOR));
-
-    // interface->vertical_tab->insertWidget(interface->vertical_tab->count() - 1, tab_btn);
-
     MultiPass::LoadDataValues();
     MultiPass::CreateTabsByDataValues();
 
+    MultiPass::visiableDataNames(true,true,true);
     //MultiPass::CreateTabs();
-    //MultiPass::visibleWidgets();
+    // MultiPass::visibleWidgets();
 };
 
 void MultiPass::LoadDataValues()
@@ -51,18 +37,23 @@ void MultiPass::CreateTabsByDataValues()
     for(DataValues* d_values:this->data_values_list)
     {
         tab_list.push_back(new Tab(d_values->TabName));
-        //tab_list.push_back(new Tab(interface->scrollAreaWidgetContents_values,d_values->TabName));
         qDebug()<<d_values->TabName;
         Tab *tab = tab_list.back();
+
+        //window->connect(tab->tab_btn,&QAbstractButton::clicked,this->window,&MultiPass::onButtonClicked,Qt::ConnectionType::AutoConnection);
+        // TabPushButton::connect(tab->tab_btn,&TabPushButton::clicked, window, &MultiPass::onButtonClicked);
+        //QMainWindow::connect(tab->tab_btn,&TabPushButton::clicked, this, &MultiPass::onButtonClicked);
         interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab->horizontalLayout);
         for (Data* data:d_values->data_list)
         {
             tab->tab_btn->values_list.push_back(new Values(interface->scrollAreaWidgetContents_values,data->email,data->login,data->password));
             interface->vertical_values->insertLayout(interface->vertical_values->count() - 1, tab->tab_btn->values_list.back()->horizontalLayout); // Добавляем перед последним элементом (spacer)
-
         }
         MultiPass::visibleWidgets(tab);
-        //MultiPass::visibleWidgets();
+        connect(tab->tab_btn, &QPushButton::clicked, this, &MultiPass::onButtonClicked);
+
+
+        //MultiPass::visibleWidgets(tab);
     }
 }
 void MultiPass::CreateTabs()
@@ -105,23 +96,8 @@ void MultiPass::visibleWidgets(Tab* tab)
         for(LabelCopy* labelCopy_:value_->label_copy_list)
         {
             MultiPass::visiableLayoutWidgets(labelCopy_->horizontalLayout_value_copy);
-            // for (int i = 0; i < labelCopy_->horizontalLayout_value_copy->count(); ++i) {
-            //     QWidget *widget = labelCopy_->horizontalLayout_value_copy->itemAt(i)->widget();
-            //     if (widget) {
-            //         widget->setVisible(false);  // Переключаем видимость
-            //     }
-            // }
         }
-
-
-        //MultiPass::visiableLayoutWidgets(case_->horizontalLayout_values);
     }
-    // for (int i = 0; i < tab_list.back()->data_names->horizontalLayout_values->count(); ++i) {
-    //     QWidget *widget = tab_list.back()->data_names->horizontalLayout_values->itemAt(i)->widget();
-    //     if (widget) {
-    //         widget->setVisible(false);  // Переключаем видимость
-    //     }
-    // }
 }
 
 void MultiPass::visiableLayoutWidgets(QHBoxLayout* layout)
@@ -131,7 +107,56 @@ void MultiPass::visiableLayoutWidgets(QHBoxLayout* layout)
         if (widget) {
             //qDebug()<<widget->isHidden();
             widget->setVisible(widget->isHidden());
-            //widget->deleteLater();
         }
+    }
+}
+
+void MultiPass::visiableDataNames(bool email,bool login,bool password){
+
+    if (email)
+    {
+        MultiPass::visiableLayoutWidgets(interface->data_names->case_email->horizontalLayout_values);
+    }
+    if (login)
+    {
+        MultiPass::visiableLayoutWidgets(interface->data_names->case_login->horizontalLayout_values);
+    }
+    if (password)
+    {
+        MultiPass::visiableLayoutWidgets(interface->data_names->case_password->horizontalLayout_values);
+    }
+}
+
+void MultiPass::onButtonClicked()
+{
+    QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
+    if (clickedButton) {
+        //qDebug() << clickedButton->text() << "was clicked!";
+        // mainTab = clickedButton;
+        qDebug() << clickedButton;
+        for (Tab *tab :this->tab_list)
+        {
+            if (tab->tab_btn == clickedButton)
+            {
+                if (mainTab==tab)
+                {
+                    qDebug() <<"Повторное нажатие";
+                    break;
+                }
+                else if (mainTab)
+                {
+                    qDebug() <<"Старое удалил новое дал";
+                    MultiPass::visibleWidgets(mainTab);
+                    mainTab = tab;
+                    MultiPass::visibleWidgets(mainTab);
+                }
+                else
+                {
+                    mainTab = tab;
+                    MultiPass::visibleWidgets(mainTab);
+                }
+            }
+        }
+
     }
 }

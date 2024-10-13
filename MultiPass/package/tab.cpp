@@ -20,7 +20,35 @@ Tab::Tab(QString tab_name,bool email,bool login,bool password) {
     horizontalLayout->addWidget(tab_btn->label_ico);
 
     horizontalLayout->addWidget(tab_btn);
+    //connect(tab_btn, &QPushButton::clicked, this, &Tab::onButtonClicked);
+
 
 }
 
+void Tab::onButtonClicked()
+{
+    qDebug()<<123;
+    Tab::visibleWidgets();
+}
 
+void Tab::visibleWidgets()
+{
+    for(Values* value_:tab_btn->values_list)
+    {
+        for(LabelCopy* labelCopy_:value_->label_copy_list)
+        {
+            Tab::visiableLayoutWidgets(labelCopy_->horizontalLayout_value_copy);
+        }
+    }
+}
+
+void Tab::visiableLayoutWidgets(QHBoxLayout* layout)
+{
+    for (int i = 0; i < layout->count(); ++i) {
+        QWidget *widget = layout->itemAt(i)->widget();
+        if (widget) {
+            //qDebug()<<widget->isHidden();
+            widget->setVisible(widget->isHidden());
+        }
+    }
+}
