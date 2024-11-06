@@ -56,7 +56,7 @@ void Interface::create_control_buttons()
     btn_add->setFont(font_big);
     btn_add->setAcceptDrops(false);
 
-    btn_add->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+    btn_add->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_BUTTON_COLOR));
 
     horizont_add_space->addWidget(btn_add);
 
@@ -71,7 +71,7 @@ void Interface::create_control_buttons()
     btn_new->setObjectName("btn_new");
     btn_new->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
     btn_new->setFont(font_middle);
-    btn_new->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+    btn_new->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_BUTTON_COLOR));
 
     horizont_btns->addWidget(btn_new);
 
@@ -83,7 +83,7 @@ void Interface::create_control_buttons()
     btn_delete->setObjectName("btn_delete");
     btn_delete->setFixedSize(QSize(INTERFACE::BUTTON_WIDTH, INTERFACE::BUTTON_HEIGHT));
     btn_delete->setFont(font_middle);
-    btn_delete->setStyleSheet(QString::fromUtf8(INTERFACE::CSS_BUTTON_COLOR));
+    btn_delete->setStyleSheet(QString::fromUtf8(INTERFACE::QSS_BUTTON_COLOR));
 
     horizont_btns->addWidget(btn_delete);
 

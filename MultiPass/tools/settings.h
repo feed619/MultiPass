@@ -81,7 +81,7 @@ const char* const CSS_LABEL_TAB_NAME_COLOR = "background-color: rgb(238, 238, 23
                                              "color: rgb(34, 40, 49);\n"
                                              "font: 25pt \"Britannic Bold\";";
 
-const char* const QSS_LABEL_TAB_NAME_COLOR =         "QPushButton {"
+const char* const QSS_LABEL_TAB_NAME_COLOR = "QPushButton {"
                                              "   background-color: rgb(238, 238, 238);"
                                              "   color: rgb(34, 40, 49);"
                                              "   border: 1px ;"
@@ -104,6 +104,16 @@ const char* const CSS_LABELCOPY_BNT_COLOR ="background-color: rgb(112, 112, 112)
                                             "color: rgb(34, 40, 49);\n"
                                             "font: 25pt \"Britannic Bold\";\n"
                                             "border:none;";
+
+const char* const QSS_BUTTON_COLOR =
+                                     "QPushButton {"
+                                     "   background-color: rgb(238, 238, 238);"
+                                     "   color: rgb(68, 73, 80);"
+                                     "   border: 1px ;"
+                                     "}"
+                                     "QPushButton:hover {"
+                                     "   background-color: rgb(198, 198, 198);"
+                                     "}";
 //(57, 62, 70)
 //(198, 199, 199)
 

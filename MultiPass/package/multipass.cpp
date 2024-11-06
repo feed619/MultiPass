@@ -30,6 +30,10 @@ void MultiPass::LoadDataValues()
     d_values1->AddDataValue("oooooo@gmail.com","porok","512616");
     d_values1->AddDataValue("12dasdj@gmail.com","srabik","74523d");
     d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+        d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+        d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+            d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+            d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
 }
 
 void MultiPass::CreateTabsByDataValues()
