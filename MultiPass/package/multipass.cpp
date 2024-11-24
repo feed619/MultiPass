@@ -5,6 +5,8 @@ MultiPass::MultiPass()
     this->window = new QMainWindow();
     interface = new Interface(this->window);
 
+    connect(interface->btn_add, &QPushButton::clicked, this, &MultiPass::onAddButtonClicked);
+
     MultiPass::LoadDataValues();
     MultiPass::CreateTabsByDataValues();
 
@@ -163,4 +165,16 @@ void MultiPass::onButtonClicked()
         }
 
     }
+}
+
+
+void MultiPass::onAddButtonClicked()
+{
+    // widget_ctrl= new WidgetControl();
+    WidgetControl w_c = WidgetControl();
+    if (w_c.exec() == QDialog::Accepted) {
+                QString userInput = w_c.getInput();
+        //Обрабатываем введенные данные
+qDebug() << "Пользователь ввел:" << userInput;
+}
 }

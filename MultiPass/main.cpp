@@ -26,67 +26,61 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 
+
+
+
 // #include <QApplication>
-// #include <QWidget>
-// #include <QHBoxLayout>
+// #include <QDialog>
 // #include <QVBoxLayout>
-// #include <QLabel>
+// #include <QLineEdit>
 // #include <QPushButton>
-// #include "tools/tabpushbutton.h"
-// class MainWindow : public QWidget {
-//     Q_OBJECT
+// #include <QLabel>
+
+// class InputDialog : public QDialog {
+
 
 // public:
-//     MainWindow(QWidget *parent = nullptr) : QWidget(parent) {
-//         // Создаем вертикальный layout для основного окна
-//         QVBoxLayout *mainLayout = new QVBoxLayout(this);
+//     InputDialog(QWidget *parent = nullptr) : QDialog(parent) {
+//         // Устанавливаем заголовок окна
+//         setWindowTitle("Введите значение");
 
-//         // Создаем горизонтальный layout для QLabel и QPushButton
-//         hboxLayout = new QHBoxLayout();
+//         // Создаем и настраиваем виджеты
+//         QVBoxLayout *layout = new QVBoxLayout(this);
+//         QLabel *label = new QLabel("Введите текст:", this);
+//         QLineEdit *inputField = new QLineEdit(this);
+//         QPushButton *okButton = new QPushButton("Ок", this);
+//         QPushButton *cancelButton = new QPushButton("Отмена", this);
 
-//         // Создаем QLabel и QPushButton
-//         QLabel *label = new QLabel("This is a label", this);
-//         TabPushButton *button = new TabPushButton("This is a button", this);
+//         // Добавляем виджеты в компоновку
+//         layout->addWidget(label);
+//         layout->addWidget(inputField);
+//         layout->addWidget(okButton);
+//         layout->addWidget(cancelButton);
 
-//         // Добавляем их в горизонтальный layout
-//         hboxLayout->addWidget(label);
-//         hboxLayout->addWidget(button);
+//         // Соединяем сигналы и слоты
+//         connect(okButton, &QPushButton::clicked, this, &QDialog::accept);
+//         connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 
-//         // Создаем кнопку для скрытия/показа layout
-//         TabPushButton *toggleButton = new TabPushButton("Hide Layout", this);
-//         connect(toggleButton, &TabPushButton::clicked, this, &MainWindow::toggleLayoutVisibility);
-
-//         // Добавляем горизонтальный layout и кнопку в основной layout
-//         mainLayout->addLayout(hboxLayout);
-//         mainLayout->addWidget(toggleButton);
+//         // Устанавливаем модальность диалога
+//         setModal(true);
 //     }
 
-// public slots:
-//     void toggleLayoutVisibility() {
-//         // Переключаем видимость всех виджетов в hboxLayout
-//         bool visible = hboxLayout->itemAt(0)->widget()->isVisible(); // Проверяем текущее состояние видимости
-//         for (int i = 0; i < hboxLayout->count(); ++i) {
-//             QWidget *widget = hboxLayout->itemAt(i)->widget();
-//             if (widget) {
-//                 widget->setVisible(!visible);  // Переключаем видимость
-//             }
-//         }
+//     QString getInput() const {
+//         // Получаем текст, введенный пользователем
+//         return findChild<QLineEdit *>()->text();
 //     }
-
-// private:
-//     QHBoxLayout *hboxLayout;
 // };
 
 // int main(int argc, char *argv[]) {
 //     QApplication app(argc, argv);
 
-//     MainWindow window;
-//     window.show();
+//     // Создаем и отображаем модальный диалог
+//     InputDialog dialog;
+//     if (dialog.exec() == QDialog::Accepted) {
+//         QString userInput = dialog.getInput();
+//         // Обрабатываем введенные данные
+//         qDebug() << "Пользователь ввел:" << userInput;
+//     }
 
 //     return app.exec();
 // }
-
-// #include "main.moc"
-
-
-

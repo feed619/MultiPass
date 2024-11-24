@@ -13,6 +13,8 @@
 #include "../tools/datavalues.h"
 #include "../tools/tabpushbutton.h"
 
+#include "../CWidget/widgetcontrol.h"
+
 #include "values.h"
 #include <QPushButton>
 #include <QMainWindow>
@@ -40,6 +42,7 @@ public:
     MultiPass();
     QMainWindow *window;
     Interface *interface;
+    WidgetControl* widget_ctrl;
     std::list<Tab*> tab_list;
     std::list<DataValues*> data_values_list;
 
@@ -52,6 +55,7 @@ public:
     void visiableDataNames(bool email,bool login,bool password);
 
     void onButtonClicked();
+    void onAddButtonClicked();
 };
 
 
