@@ -31,6 +31,8 @@ Interface::Interface(QMainWindow *window) {
     window->setCentralWidget(centralwidget);
 
 
+
+
     window->setWindowTitle(QCoreApplication::translate("MultiPass", "MultiPass", nullptr));
     btn_add->setText(QCoreApplication::translate("MultiPass", "    add", nullptr));
     btn_new->setText(QCoreApplication::translate("MultiPass", "new account", nullptr));

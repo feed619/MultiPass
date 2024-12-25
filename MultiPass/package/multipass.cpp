@@ -32,10 +32,10 @@ void MultiPass::LoadDataValues()
     d_values1->AddDataValue("oooooo@gmail.com","porok","512616");
     d_values1->AddDataValue("12dasdj@gmail.com","srabik","74523d");
     d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
-        d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
-        d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
-            d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
-            d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+    d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+    d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+    d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
+    d_values1->AddDataValue("lASIBQWE@gmail.com","bold","9127u4");
 }
 
 void MultiPass::CreateTabsByDataValues()
@@ -151,7 +151,7 @@ void MultiPass::onButtonClicked()
                 }
                 else if (mainTab)
                 {
-                    qDebug() <<"Старое удалил новое дал";
+                    qDebug() <<"Старое удалил новое добавил";
                     MultiPass::visibleWidgets(mainTab);
                     mainTab = tab;
                     MultiPass::visibleWidgets(mainTab);
@@ -173,8 +173,22 @@ void MultiPass::onAddButtonClicked()
     // widget_ctrl= new WidgetControl();
     WidgetControl w_c = WidgetControl();
     if (w_c.exec() == QDialog::Accepted) {
-                QString userInput = w_c.getInput();
-        //Обрабатываем введенные данные
-qDebug() << "Пользователь ввел:" << userInput;
-}
+        QString userInput = w_c.getInput();
+        if (!userInput.isEmpty())
+        {
+            qDebug() << "Пользователь ввел:" << userInput;
+            this->data_values_list.push_back(new DataValues(userInput,true,true,true));
+            DataValues* d_values = this->data_values_list.back();
+
+            tab_list.push_back(new Tab(d_values->TabName));
+            qDebug()<<d_values->TabName;
+            Tab *tab = tab_list.back();
+            interface->vertical_tab->insertLayout(interface->vertical_tab->count() - 1, tab->horizontalLayout);
+
+            MultiPass::visibleWidgets(tab);
+            connect(tab->tab_btn, &QPushButton::clicked, this, &MultiPass::onButtonClicked);
+
+        }
+
+    }
 }
